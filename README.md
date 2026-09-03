@@ -4,7 +4,7 @@
 
 **Fifteen specialists. One A-share research desk.**
 
-Self-hosted multi-agent research for China A-shares: 15-agent debate, optional Tushare Level-2 order queue, a K-line workstation with AI insight, and a signal translation layer so models read conclusions — not raw dumps.
+Run it on your own machine. Fifteen agents debate A-share names; the K-line desk can explain the chart; Tushare L2 order-queue is opt-in. Models see distilled conclusions, not raw dumps.
 
 This is a **research workbench**. It does **not** place trades by default.
 
@@ -13,8 +13,6 @@ This is a **research workbench**. It does **not** place trades by default.
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
 **[Install](docs/en/install.md)** · **[User guide](docs/en/user-guide.md)** · **[Releases](https://github.com/rufeng0411/Nova-TradingAgent/releases)** · **[Collaborate](#collaborate)**
-
-There is **no** third-party hosted trial. Run **Nova-TradingAgent** yourself, or add WeChat **山君** for business.
 
 | Self-host | Docs | Collaborate |
 | --- | --- | --- |

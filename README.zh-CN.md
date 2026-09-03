@@ -4,7 +4,7 @@
 
 **十五名投研智能体，一张可自托管的 A 股研究台。**
 
-面向 A 股的自托管多智能体投研工作台：15 名智能体辩论、可选 Tushare L2 委托队列、带 Ai 解读的 K 线分析，以及让模型读**结论**而不是原始大表的翻译层。
+自己部署、面向 A 股的投研台。十五个智能体一起辩论；K 线带 Ai 解读；Tushare L2 委托队列按需打开。模型读的是整理过的结论，不是整张原始表。
 
 这是**投研工作台**，默认**不会自动下单**。
 
@@ -13,8 +13,6 @@
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
 **[安装](docs/zh-CN/install.md)** · **[使用手册](docs/zh-CN/user-guide.md)** · **[Releases](https://github.com/rufeng0411/Nova-TradingAgent/releases)** · **[交流合作](#交流合作)**
-
-**没有**第三方在线试用。请自行运行 **Nova-TradingAgent**，或加微信 **山君** 谈合作。
 
 | 自托管 | 文档 | 交流合作 |
 | --- | --- | --- |
