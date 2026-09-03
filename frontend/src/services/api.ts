@@ -55,6 +55,11 @@ export function getBaseUrl(): string {
         const h = window.location.hostname
         // 生产构建在 localhost 预览/本地静态服务时，页面 origin 上没有 API，沿用同源会得到 405；默认直连本机 FastAPI。
         if (!import.meta.env.DEV && isLoopbackHost(h)) {
+            const port = window.location.port
+            // Golden path: uvicorn hosts SPA + API on 8000. Do not send XHR to 8001.
+            if (port === '8000' || port === '80' || port === '') {
+                return window.location.origin.replace(/\/$/, '')
+            }
             return normalizeLoopbackApiForLan(defaultLocalApiBase())
         }
         // 预览/静态站通过局域网 IP 访问且未配置 VITE_API_URL 时，同源是前端端口；假定 API 与页面同主机 :8000（需 uvicorn 监听 0.0.0.0）。

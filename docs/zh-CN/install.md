@@ -116,7 +116,7 @@ uv run python -m uvicorn api.main:app --host 127.0.0.1 --port 8000
 | 页面空白 / 只有 API JSON | 未构建 `frontend/dist`。执行步骤 4 |
 | `TA_ADMIN_PASSWORD must be set` | `.env` 未加载或口令为空。确认在仓库根启动，且 `.env` 有 Quick start 块 |
 | 密码强度错误 | 至少 8 位且同时含字母和数字 |
-| 登录 Failed to fetch | 开错了 5173，或 API 没起。黄金路径只用 8000 |
+| 登录 Failed to fetch | 开错了 5173，或 API 没起。黄金路径只用 8000。若页面在 8000 仍报连不上，请确认用的是本仓库已修复的前端构建（同源 `/v1`），不要指向 8001 |
 | `/health` 404 | 正确路径是 `/healthz` |
 | `uv` 找不到 | 安装 uv 后重开终端 |
 | `npm run build` 失败 | Node ≥18；清 `frontend/node_modules` 重装 |

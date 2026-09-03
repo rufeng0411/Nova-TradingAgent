@@ -112,7 +112,7 @@ If the login page cannot fetch the API, you are probably on 5173 without the dev
 | Blank page / API JSON only | No `frontend/dist`. Repeat step 4 |
 | `TA_ADMIN_PASSWORD must be set` | `.env` missing or empty password; start from repo root |
 | Password rejected | Min 8 chars, at least one letter and one digit |
-| Failed to fetch | Use port 8000 for this path |
+| Failed to fetch | Use port 8000 for this path. The production SPA on :8000 talks to the same origin, not :8001 |
 | `/health` 404 | Use `/healthz` |
 | `uv` not found | Install uv and reopen the terminal |
 | `npm run build` fails | Node ≥18; reinstall frontend deps |
