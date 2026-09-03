@@ -152,7 +152,7 @@ export default function OutcomeDashboardDialog({ open, onClose, kind, onKindChan
                 const tk = kind === 'fast' ? 'fast_analysis' : 'full_analysis'
                 const res = await api.getReportOutcomeSummary({ taskKind: tk, sinceDays: days, groupBy: tab })
                 if (mounted) setPayload(res)
-                if (tab === 'version' && kind !== 'kline') {
+                if (tab === 'version') {
                     try {
                         const gates = await api.getQlibEvalGates({ sinceDays: days })
                         if (mounted) setQuantGates(gates.enabled ? gates : null)

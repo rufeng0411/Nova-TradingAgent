@@ -15,14 +15,14 @@ __pycache__/
 
 # Distribution / packaging
 .Python
-build/
+/build/
 develop-eggs/
-dist/
+/dist/
 downloads/
 eggs/
 .eggs/
-lib/
-lib64/
+/lib/
+/lib64/
 parts/
 sdist/
 var/
@@ -227,8 +227,8 @@ __marimo__/
 
 # Runtime artifacts
 eval_results/
-reports/
-results/
+/reports/
+/results/
 
 # Qlib independent workspace
 QLIB/.venv/
@@ -288,3 +288,4 @@ CONFIRM.md
 .oss-meta.json
 pytest-full.log
 pytest-out.txt
+OSS_CHECK.md
