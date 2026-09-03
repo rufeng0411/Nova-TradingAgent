@@ -11,7 +11,7 @@ jobs:
       TA_APP_SECRET_KEY: please-change-this-to-a-32byte-or-longer-secret
       TA_ALLOW_REGISTRATION: "1"
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: astral-sh/setup-uv@v5
       - uses: actions/setup-python@v5
         with:
@@ -35,7 +35,7 @@ jobs:
       run:
         working-directory: frontend
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
