@@ -8,6 +8,7 @@
 
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](LICENSE)
 [![Release](https://img.shields.io/github/v/release/rufeng0411/Nova-TradingAgent)](https://github.com/rufeng0411/Nova-TradingAgent/releases)
+[![Docs](https://img.shields.io/badge/docs-GitHub_Pages-2ea44f)](https://rufeng0411.github.io/Nova-TradingAgent/)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
 **[安装](docs/zh-CN/install.md)** · **[使用手册](docs/zh-CN/user-guide.md)** · **[能力亮点](docs/zh-CN/capabilities.md)** · **[Releases](https://github.com/rufeng0411/Nova-TradingAgent/releases)** · **[交流合作](#交流合作)**
