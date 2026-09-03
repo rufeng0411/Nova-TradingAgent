@@ -1,3 +1,0 @@
-最近一次完整核对见子目录: prod-510168/
-运行: npm run verify:ui
-或: node scripts/visual-audit.mjs https://app.510168.xyz verification-screenshots/prod-510168

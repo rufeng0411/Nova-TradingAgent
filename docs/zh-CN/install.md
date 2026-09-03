@@ -90,7 +90,7 @@ uv run python -m uvicorn api.main:app --host 127.0.0.1 --port 8000
 1. 浏览器打开 `http://127.0.0.1:8000`，应看到登录页（不是空白页）。
 2. `GET http://127.0.0.1:8000/healthz` 应返回 JSON（HTTP 200）。不要请求 `/health`。
 3. 用户名 `admin`（或 `.env` 中的 `TA_ADMIN_USERNAME`），密码为 `TA_ADMIN_PASSWORD`。
-4. 登录后进入工作台。此时库中不应有他人用户或历史研报（空库）。
+4. 登录后进入工作台。此时库中不应有他人用户或历史研报（空库）。登录页在 `TA_ALLOW_REGISTRATION=0` 时**没有**「注册账号」入口。
 
 ## Docker（可选，非第一屏）
 

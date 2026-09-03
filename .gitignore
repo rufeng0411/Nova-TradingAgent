@@ -289,3 +289,7 @@ CONFIRM.md
 pytest-full.log
 pytest-out.txt
 OSS_CHECK.md
+releases/*.zip
+verification-screenshots/
+frontend/test-results/
+playwright-report/

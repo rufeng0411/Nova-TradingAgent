@@ -16,6 +16,7 @@ from api.database import (
     AdminAuditLogDB,
     CreditTransactionDB,
     PlanDB,
+    SYSTEM_LEGACY_USER_ID,
     SubscriptionDB,
     UserDB,
 )
@@ -90,7 +91,7 @@ def list_users(
     page: int = 1,
     page_size: int = 20,
 ) -> Tuple[List[UserDB], int]:
-    query = db.query(UserDB)
+    query = db.query(UserDB).filter(UserDB.id != SYSTEM_LEGACY_USER_ID, UserDB.role != "system")
     if q:
         like = f"%{q.strip()}%"
         query = query.filter(or_(UserDB.email.ilike(like), UserDB.username.ilike(like)))

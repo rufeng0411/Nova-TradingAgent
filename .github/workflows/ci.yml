@@ -4,11 +4,42 @@ on:
     branches: [main]
   pull_request:
 jobs:
-  test:
+  python-allowlist:
     runs-on: ubuntu-latest
+    env:
+      TA_ADMIN_PASSWORD: ChangeMe_Admin1!
+      TA_APP_SECRET_KEY: please-change-this-to-a-32byte-or-longer-secret
+      TA_ALLOW_REGISTRATION: "1"
     steps:
       - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: python -m unittest discover -s tests -v
+      - run: uv sync --frozen
+      - run: >-
+          uv run pytest
+          tests/test_insight_prompt.py
+          tests/test_safe_ticker_component.py
+          tests/test_intent_parser.py
+          tests/test_ticker_coercion.py
+          tests/test_agent_states.py
+          tests/test_strip_public_debate.py
+          tests/test_wecom_notification_service.py
+          tests/test_email_report_service.py
+          tests/test_config_fallback.py
+          -q --tb=line
+  frontend-build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci
+      - run: npm run build

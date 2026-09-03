@@ -14,7 +14,14 @@ from uuid import uuid4
 
 from sqlalchemy.orm import Session
 
-from api.database import AccessLogDB, AdminExportJobDB, CreditTransactionDB, UserDB, get_db_ctx
+from api.database import (
+    SYSTEM_LEGACY_USER_ID,
+    AccessLogDB,
+    AdminExportJobDB,
+    CreditTransactionDB,
+    UserDB,
+    get_db_ctx,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -49,7 +56,13 @@ def create_job(db: Session, *, export_type: str, admin_id: str) -> AdminExportJo
 
 
 def _write_users_csv(db: Session, path: Path) -> None:
-    rows = db.query(UserDB).order_by(UserDB.created_at.desc()).limit(50_000).all()
+    rows = (
+        db.query(UserDB)
+        .filter(UserDB.id != SYSTEM_LEGACY_USER_ID, UserDB.role != "system")
+        .order_by(UserDB.created_at.desc())
+        .limit(50_000)
+        .all()
+    )
     with path.open("w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         w.writerow(["id", "email_masked", "username", "role", "status", "credits", "created_at"])

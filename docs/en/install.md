@@ -88,7 +88,7 @@ uv run python -m uvicorn api.main:app --host 127.0.0.1 --port 8000
 1. Open `http://127.0.0.1:8000` — login page, not a blank screen.
 2. `GET http://127.0.0.1:8000/healthz` — JSON, HTTP 200. There is no `/health`.
 3. Sign in as `admin` (or `TA_ADMIN_USERNAME`) with `TA_ADMIN_PASSWORD`.
-4. You should see an empty desk (no other users’ reports).
+4. You should see an empty desk (no other users’ reports). With `TA_ALLOW_REGISTRATION=0` the login page has **no** sign-up link.
 
 ## Docker (optional, not the first-screen path)
 

@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Loader2, LockKeyhole, User } from 'lucide-react'
 import { api } from '@/services/api'
@@ -9,11 +9,16 @@ const FETCH_HINT =
 
 export default function Login() {
     const navigate = useNavigate()
-    const { setAuth } = useAuthStore()
+    const { setAuth, fetchPublicFeatures, publicFeatures } = useAuthStore()
     const [identifier, setIdentifier] = useState('')
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState<string | null>(null)
+    const allowRegistration = publicFeatures?.allow_registration === true
+
+    useEffect(() => {
+        void fetchPublicFeatures()
+    }, [fetchPublicFeatures])
 
     const submit = async (e: FormEvent) => {
         e.preventDefault()
@@ -79,9 +84,13 @@ export default function Login() {
                     <Link to="/forgot-password" className="text-blue-600 hover:underline">
                         忘记密码
                     </Link>
-                    <Link to="/register" className="text-blue-600 hover:underline">
-                        注册账号
-                    </Link>
+                    {allowRegistration ? (
+                        <Link to="/register" className="text-blue-600 hover:underline">
+                            注册账号
+                        </Link>
+                    ) : (
+                        <span />
+                    )}
                 </div>
                 <p className="mt-6 text-xs text-slate-400 text-center">首次使用邮箱 OTP 老账号？请使用「忘记密码」设置密码。</p>
             </div>

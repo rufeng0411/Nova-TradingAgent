@@ -6,7 +6,7 @@ import { useAuthStore } from '@/stores/authStore'
 
 export default function Register() {
     const navigate = useNavigate()
-    const { setAuth } = useAuthStore()
+    const { setAuth, fetchPublicFeatures } = useAuthStore()
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
@@ -14,6 +14,20 @@ export default function Register() {
     const [avail, setAvail] = useState<boolean | null>(null)
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState<string | null>(null)
+
+    useEffect(() => {
+        let cancelled = false
+        void (async () => {
+            await fetchPublicFeatures()
+            const allow = useAuthStore.getState().publicFeatures?.allow_registration === true
+            if (!cancelled && !allow) {
+                navigate('/login', { replace: true })
+            }
+        })()
+        return () => {
+            cancelled = true
+        }
+    }, [fetchPublicFeatures, navigate])
 
     useEffect(() => {
         const t = username.trim().toLowerCase()
