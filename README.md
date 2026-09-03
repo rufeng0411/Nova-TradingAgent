@@ -12,13 +12,13 @@ This is a **research workbench**. It does **not** place trades by default.
 [![Release](https://img.shields.io/github/v/release/rufeng0411/Nova-TradingAgent)](https://github.com/rufeng0411/Nova-TradingAgent/releases)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
-**[Demo (hosted instance)](https://app.510168.xyz)** · **[Install](docs/en/install.md)** · **[User guide](docs/en/user-guide.md)** · **[Releases](https://github.com/rufeng0411/Nova-TradingAgent/releases)** · **[Collaborate](#collaborate)**
+**[Install](docs/en/install.md)** · **[User guide](docs/en/user-guide.md)** · **[Releases](https://github.com/rufeng0411/Nova-TradingAgent/releases)** · **[Collaborate](#collaborate)**
 
-Demo is a hosted instance of this software, not a promise of uptime or of identical data entitlements.
+There is **no** third-party hosted trial. Run **Nova-TradingAgent** yourself, or add WeChat **山君** for business.
 
-| Hosted demo | Self-host | OpenClaw skill |
+| Self-host | Docs | Collaborate |
 | --- | --- | --- |
-| Try [app.510168.xyz](https://app.510168.xyz) | SQLite + `uv` + built SPA on port **8000** | `skills/tradingagents-analysis` |
+| SQLite + `uv` + built SPA on port **8000** | [install](docs/en/install.md) · [user guide](docs/en/user-guide.md) | WeChat **山君** |
 
 ```bash
 git clone https://github.com/rufeng0411/Nova-TradingAgent.git
@@ -110,8 +110,6 @@ Issues: use GitHub templates. Do not paste API keys.
 ## License
 
 GNU Affero General Public License v3.0. If you modify this software and provide it over a network, you must offer the corresponding source to your users. See [LICENSE](LICENSE), [NOTICE](NOTICE), and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
-
-Upstream inspiration: [TauricResearch/TradingAgents](https://github.com/TauricResearch/TradingAgents) (Apache-2.0). This release is a distinct product tree under AGPL-3.0.
 
 ## Disclaimer
 

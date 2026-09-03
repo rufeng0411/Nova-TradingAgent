@@ -12,13 +12,13 @@
 [![Release](https://img.shields.io/github/v/release/rufeng0411/Nova-TradingAgent)](https://github.com/rufeng0411/Nova-TradingAgent/releases)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
-**[Demo（托管实例）](https://app.510168.xyz)** · **[安装](docs/zh-CN/install.md)** · **[使用手册](docs/zh-CN/user-guide.md)** · **[Releases](https://github.com/rufeng0411/Nova-TradingAgent/releases)** · **[交流合作](#交流合作)**
+**[安装](docs/zh-CN/install.md)** · **[使用手册](docs/zh-CN/user-guide.md)** · **[Releases](https://github.com/rufeng0411/Nova-TradingAgent/releases)** · **[交流合作](#交流合作)**
 
-Demo 是本软件的托管实例，不承诺与你的自建环境数据权限或可用性完全一致。
+**没有**第三方在线试用。请自行运行 **Nova-TradingAgent**，或加微信 **山君** 谈合作。
 
-| 在线试用 | 自托管 | OpenClaw 技能 |
+| 自托管 | 文档 | 交流合作 |
 | --- | --- | --- |
-| [app.510168.xyz](https://app.510168.xyz) | SQLite + `uv` + 构建后的前端，端口 **8000** | `skills/tradingagents-analysis` |
+| SQLite + `uv` + 构建后的前端，端口 **8000** | [安装](docs/zh-CN/install.md) · [使用手册](docs/zh-CN/user-guide.md) | 微信 **山君** |
 
 ```bash
 git clone https://github.com/rufeng0411/Nova-TradingAgent.git
@@ -110,8 +110,6 @@ Issue 请用仓库模板。不要粘贴 API Key。
 ## 许可
 
 GNU Affero General Public License v3.0。若你修改本软件并通过网络向用户提供，必须向用户提供对应源码。见 [LICENSE](LICENSE)、[NOTICE](NOTICE)、[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
-
-上游灵感：[TauricResearch/TradingAgents](https://github.com/TauricResearch/TradingAgents)（Apache-2.0）。本产品树以 AGPL-3.0 发布。
 
 ## 免责声明
 

@@ -210,7 +210,7 @@ def rows() -> list[list[str]]:
         "",
         "Sponsor",
         "ExternalRedirect",
-        "非 app.510168.xyz 整页跳转线上",
+        "非第三方托管站整页跳转",
         "无",
         "无",
         "window.location",

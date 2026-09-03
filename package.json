@@ -20,7 +20,7 @@
     "test:e2e:baseline": "powershell -File scripts/e2e/run-fullstack-playwright.ps1 -Profile baseline",
     "test:e2e:upgrade": "powershell -File scripts/e2e/run-fullstack-playwright.ps1 -Profile upgrade -IncludeHeavy",
     "test:e2e:acceptance": "powershell -File scripts/e2e/run-fullstack-playwright.ps1 -Profile baseline && powershell -File scripts/e2e/run-fullstack-playwright.ps1 -Profile upgrade -IncludeHeavy",
-    "verify:ui": "node scripts/visual-audit.mjs https://app.510168.xyz verification-screenshots/prod-510168",
+    "verify:ui": "node scripts/visual-audit.mjs http://127.0.0.1:8000 verification-screenshots/local-8000",
     "dev": "concurrently --kill-others-on-fail -n api,web -c cyan,magenta \"npm run dev:api\" \"npm run dev:web\"",
     "dev:api": "node scripts/dev-api.mjs",
     "dev:web": "npm --prefix frontend run dev",

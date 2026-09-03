@@ -12,7 +12,7 @@
 #
 # 环境变量:
 #   TRADINGAGENTS_TOKEN   (必填) API 令牌
-#   TRADINGAGENTS_API_URL (可选) 默认 https://api.510168.xyz
+#   TRADINGAGENTS_API_URL (必填) 自托管 Nova-TradingAgent 根地址，例如 http://127.0.0.1:8000
 #   POLL_INTERVAL         (可选) 轮询间隔秒数，默认 15
 #   POLL_TIMEOUT          (可选) 最大等待秒数，默认 600
 
@@ -23,7 +23,7 @@ SYMBOLS="${1:?用法: analyze.sh <symbol[,symbol2,...]> [trade_date] [horizons]}
 TRADE_DATE="${2:-$(date +%Y-%m-%d)}"
 HORIZONS="${3:-short}"
 
-API_URL="${TRADINGAGENTS_API_URL:-https://api.510168.xyz}"
+API_URL="${TRADINGAGENTS_API_URL:?请设置 TRADINGAGENTS_API_URL（自托管 Nova-TradingAgent 根地址）}"
 TOKEN="${TRADINGAGENTS_TOKEN:?请设置 TRADINGAGENTS_TOKEN 环境变量}"
 INTERVAL="${POLL_INTERVAL:-15}"
 TIMEOUT="${POLL_TIMEOUT:-600}"

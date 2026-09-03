@@ -9,7 +9,7 @@ description: >-
   15 specialized analysts collaborate across technical analysis, fundamental analysis,
   sentiment analysis, smart money flow tracking, macro economics, and game theory
   to deliver structured buy/sell/hold recommendations with risk assessment.
-homepage: https://app.510168.xyz
+homepage: https://github.com/rufeng0411/Nova-TradingAgent
 repository: https://github.com/rufeng0411/Nova-TradingAgent
 tags:
   - stock-analysis
@@ -69,7 +69,7 @@ metadata:
         - bash
     primaryEnv: TRADINGAGENTS_TOKEN
     emoji: "📈"
-    homepage: https://app.510168.xyz
+    homepage: https://github.com/rufeng0411/Nova-TradingAgent
 ---
 
 # Nova-TradingAgent 多智能体 A 股投研分析
@@ -131,7 +131,7 @@ Use the Nova-TradingAgent API to let **15 specialized AI analysts** conduct deep
 ## 🔒 隐私与安全
 
 - **发送范围**：本技能**仅**从对话中提取股票名称/代码、分析日期、分析视角等参数，将其作为 `symbol`/`trade_date`/`horizons` 字段发送至后端 API。**不发送对话原文、不读取本地文件、不上传任何其他隐私数据。**
-- **令牌安全**：`TRADINGAGENTS_TOKEN`（格式 `ta-sk-*`）是访问后端的唯一凭证，请使用最小权限令牌，如怀疑泄露请立即在 [app.510168.xyz](https://app.510168.xyz) 吊销并重新生成。
+- **令牌安全**：`TRADINGAGENTS_TOKEN`（格式 `ta-sk-*`）是访问后端的唯一凭证，请使用最小权限令牌；如怀疑泄露，请在你**自托管实例**的设置里吊销并重新生成。
 - **敏感内容提示**：请勿在分析请求中粘贴个人账户信息、真实持仓或其他敏感内容，本技能无法阻止用户主动提交这些内容。
 - **自托管**：如需完全掌控数据流向，可参考 [GitHub 文档](https://github.com/rufeng0411/Nova-TradingAgent) 自行部署后端，并将 `TRADINGAGENTS_API_URL` 指向自建服务器。
 
@@ -148,25 +148,20 @@ Use the Nova-TradingAgent API to let **15 specialized AI analysts** conduct deep
 
 ## ⚙️ 快速配置
 
-**方式一：使用官方托管服务（零部署，开箱即用）**
+**方式一：自托管 Nova-TradingAgent（推荐）**
 
-1. 登录 [https://app.510168.xyz](https://app.510168.xyz)
-2. 进入 **Settings → API Tokens** 创建令牌
+1. 按仓库 [安装文档](https://github.com/rufeng0411/Nova-TradingAgent/blob/main/docs/zh-CN/install.md) 在本机或服务器部署（默认 `http://127.0.0.1:8000`）。
+2. 登录后在 **设置 → API Tokens** 创建令牌。
 3. 配置环境变量：
+
 ```bash
+export TRADINGAGENTS_API_URL="http://127.0.0.1:8000"
 export TRADINGAGENTS_TOKEN="ta-sk-your_key_here"
 ```
 
-**方式二：私有化部署（数据完全自主可控）**
+**方式二：已有远程实例**
 
-如对数据隐私有要求，可自行部署后端，所有分析数据仅在你自己的服务器上处理：
-
-```bash
-# 1. 部署后端，参考 https://github.com/rufeng0411/Nova-TradingAgent
-# 2. 将 API 地址指向自建服务
-export TRADINGAGENTS_API_URL="http://your-server:8000"
-export TRADINGAGENTS_TOKEN="ta-sk-your_key_here"
-```
+若你已在自有域名部署 Nova-TradingAgent，将 `TRADINGAGENTS_API_URL` 指向该实例即可；**不要**使用与本仓库无关的第三方托管站。
 
 ## 🚀 常用操作
 
@@ -199,7 +194,7 @@ bash scripts/analyze.sh 600519.SH,002594.SZ,300750.SZ 2026-03-22
 
 1. 提交分析任务
 ```bash
-curl -X POST "${TRADINGAGENTS_API_URL:-https://api.510168.xyz}/v1/analyze" \
+curl -X POST "${TRADINGAGENTS_API_URL:?请设置 TRADINGAGENTS_API_URL}/v1/analyze" \
   -H "Authorization: Bearer $TRADINGAGENTS_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{"symbol": "贵州茅台"}'
@@ -207,13 +202,13 @@ curl -X POST "${TRADINGAGENTS_API_URL:-https://api.510168.xyz}/v1/analyze" \
 
 2. 查询任务状态
 ```bash
-curl "${TRADINGAGENTS_API_URL:-https://api.510168.xyz}/v1/jobs/{job_id}" \
+curl "${TRADINGAGENTS_API_URL:?请设置 TRADINGAGENTS_API_URL}/v1/jobs/{job_id}" \
   -H "Authorization: Bearer $TRADINGAGENTS_TOKEN"
 ```
 
 3. 获取完整分析结果（任务完成后）
 ```bash
-curl "${TRADINGAGENTS_API_URL:-https://api.510168.xyz}/v1/jobs/{job_id}/result" \
+curl "${TRADINGAGENTS_API_URL:?请设置 TRADINGAGENTS_API_URL}/v1/jobs/{job_id}/result" \
   -H "Authorization: Bearer $TRADINGAGENTS_TOKEN"
 ```
 
