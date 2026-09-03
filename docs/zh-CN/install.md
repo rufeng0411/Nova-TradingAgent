@@ -1,6 +1,6 @@
 # 安装
 
-陌生人请**只按本文**操作。不要混用开发端口（Vite 5173 / API 8001）和本路径的生产式端口（构建后的 `frontend/dist` + uvicorn **8000**）。无 `frontend/dist` 时 FastAPI **不会**挂上前端界面。
+按下面步骤做就行。开发端口（Vite 5173 / API 8001）和这条路径（构建好的 `frontend/dist` + uvicorn **8000**）不要混用。没有 `frontend/dist` 时，页面不会出来。
 
 ## 你将得到什么
 
@@ -19,7 +19,7 @@
 
 Windows PowerShell 与 macOS/Linux bash 命令如下。若某步报错，见文末「若出现 X 则做 Y」，或 [troubleshooting.md](troubleshooting.md)。
 
-## 黄金路径（必须逐字执行）
+## 推荐步骤
 
 ### 1. 取得源码
 
@@ -100,7 +100,7 @@ uv run python -m uvicorn api.main:app --host 127.0.0.1 --port 8000
 
 容器内仍需传入 `TA_ADMIN_PASSWORD` 与 `TA_APP_SECRET_KEY`。数据目录建议挂载到 `/app/data`，并设置 `DATABASE_URL=sqlite:///./data/tradingagents.db`。
 
-## 开发者附录（不要与黄金路径混用）
+## 开发者附录（不要和上面的安装步骤混用）
 
 仅当你在改前端热重载时使用：
 
@@ -116,7 +116,7 @@ uv run python -m uvicorn api.main:app --host 127.0.0.1 --port 8000
 | 页面空白 / 只有 API JSON | 未构建 `frontend/dist`。执行步骤 4 |
 | `TA_ADMIN_PASSWORD must be set` | `.env` 未加载或口令为空。确认在仓库根启动，且 `.env` 有 Quick start 块 |
 | 密码强度错误 | 至少 8 位且同时含字母和数字 |
-| 登录 Failed to fetch | 开错了 5173，或 API 没起。黄金路径只用 8000。若页面在 8000 仍报连不上，请确认用的是本仓库已修复的前端构建（同源 `/v1`），不要指向 8001 |
+| 登录 Failed to fetch | 开错了 5173，或 API 没起。按上面步骤只用 8000。若页面在 8000 仍报连不上，请确认前端已构建且走同源 `/v1`，不要指向 8001 |
 | `/health` 404 | 正确路径是 `/healthz` |
 | `uv` 找不到 | 安装 uv 后重开终端 |
 | `npm run build` 失败 | Node ≥18；清 `frontend/node_modules` 重装 |

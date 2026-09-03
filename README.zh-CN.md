@@ -100,11 +100,11 @@ Qlib 桥默认关闭且 **不在 Docker 镜像**；有本机数据再开，不�
 
 ## 安装
 
-陌生人请**只按** [docs/zh-CN/install.md](docs/zh-CN/install.md) 操作。黄金路径是 SQLite + 源码构建 + **8000** 端口的 `uvicorn`。这不是维护者本机的 Electron + MySQL 开发栈（Vite **5173** / API **8001**）。
+安装请按 [docs/zh-CN/install.md](docs/zh-CN/install.md)。推荐做法：SQLite、源码构建前端，再用 uvicorn 开在 **8000**。本机开发用的 Electron / MySQL、Vite 5173、API 8001 是另一套，别混着用。
 
-Docker 镜像随 `v*` 标签由 workflow 发布到 `ghcr.io/rufeng0411/Nova-TradingAgent`。在该构建完成前 `docker pull :latest` 会 404 — 请用源码安装。
+Docker 镜像在打 `v*` 标签后才会推到 `ghcr.io/rufeng0411/Nova-TradingAgent`。镜像还没出来时 `docker pull :latest` 会失败，先走源码安装即可。
 
-当前 Dockerfile **不含** Qlib。
+镜像里没有 Qlib。
 
 ## 基本配置
 

@@ -1,6 +1,6 @@
 # Install
 
-Follow **this page only**. Do not mix the maintainer dev ports (Vite **5173** / API **8001**) with this production-style path (built `frontend/dist` + uvicorn **8000**). FastAPI mounts the SPA **only** when `frontend/dist` exists.
+Follow this page. Don’t mix the local-dev ports (Vite **5173** / API **8001**) with this path (built `frontend/dist` + uvicorn **8000**). Without `frontend/dist`, the UI won’t show.
 
 ## What you get
 
@@ -17,7 +17,7 @@ LLM keys (and optional Tushare) are required to **run** an analysis, not to open
 - [uv](https://docs.astral.sh/uv/)
 - Git
 
-## Golden path (copy exactly)
+## Recommended steps
 
 ### 1. Clone
 
@@ -98,7 +98,7 @@ The image does **not** include Qlib.
 
 Pass `TA_ADMIN_PASSWORD` and `TA_APP_SECRET_KEY`. Mount a data directory and set `DATABASE_URL=sqlite:///./data/tradingagents.db`.
 
-## Developer appendix (do not mix with the golden path)
+## Developer appendix (don’t mix with the steps above)
 
 - `npm run dev`: Vite **5173** + `scripts/dev-api.mjs` default API **8001**
 - `docker-compose.dev.yml`, Electron launcher, local MySQL / Windows Postgres are optional

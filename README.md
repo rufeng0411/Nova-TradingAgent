@@ -100,11 +100,11 @@ Default graph: market, social, news, fundamentals, macro, smart money, volume-pr
 
 ## Install
 
-Strangers should follow **[docs/en/install.md](docs/en/install.md)** only. That path is SQLite + source build + `uvicorn` on **8000**. It is not the maintainer Electron + MySQL stack (Vite **5173** / API **8001**).
+Follow **[docs/en/install.md](docs/en/install.md)**. Recommended: SQLite, build the frontend from source, run `uvicorn` on **8000**. Electron / MySQL, Vite 5173, and API 8001 are a separate local-dev setup — don’t mix them with this path.
 
-Docker images publish on the `v*` tag (`ghcr.io/rufeng0411/Nova-TradingAgent`). Until that workflow has run, `docker pull` of `:latest` will 404 — use source install.
+The Docker image is published to `ghcr.io/rufeng0411/Nova-TradingAgent` when a `v*` tag is pushed. Until that build exists, `docker pull :latest` will fail; use the source install.
 
-Qlib is **not** inside the Docker image.
+The image does not include Qlib.
 
 ## Configure (shallow)
 
