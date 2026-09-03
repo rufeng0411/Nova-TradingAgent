@@ -2,6 +2,8 @@
 
 Follow this page. Don’t mix the local-dev ports (Vite **5173** / API **8001**) with this path (built `frontend/dist` + uvicorn **8000**). Without `frontend/dist`, the UI won’t show.
 
+What you get is a login-ready A-share research desk (fifteen-agent debate, K-line, optional L2/Qlib, credits and admin)—not an auto-trader. Product overview: [README.md](../../README.md).
+
 ## What you get
 
 - Web desk at `http://127.0.0.1:8000`

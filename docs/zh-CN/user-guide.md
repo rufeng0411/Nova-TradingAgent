@@ -12,7 +12,7 @@
 
 **入口：** 未登录打开 `http://127.0.0.1:8000` → `/login`。登录后侧栏 **账户**（`/account`）。顶栏头像可退出、进管理后台（管理员）。
 
-**前置：** 已按安装文档启动。黄金路径默认管理员 `admin` / `TA_ADMIN_PASSWORD`（文档示例 `ChangeMe_Admin1!`）。`TA_ALLOW_REGISTRATION=0` 时没有注册入口可用。
+**前置：** 已按安装文档启动。默认管理员 `admin` / `TA_ADMIN_PASSWORD`（文档示例 `ChangeMe_Admin1!`）。`TA_ALLOW_REGISTRATION=0` 时没有注册入口可用。
 
 **步骤：**
 
@@ -25,7 +25,7 @@
 
 **失败：**
 
-- 「无法连接后端」：你开的不是 `http://127.0.0.1:8000`，或 uvicorn 已停。不要用 5173 当黄金路径。
+- 「无法连接后端」：你开的不是 `http://127.0.0.1:8000`，或 uvicorn 已停。不要用 5173 当推荐安装入口。
 - 密码错误：核对 `.env`，或在仓库根运行 `uv run python scripts/reset_admin_password.py`（仍读 `.env`）。
 - 需要改密但强度不够：补字母和数字。
 
@@ -169,34 +169,45 @@
 
 ## 10. 管理后台（浏览级）
 
-**入口：** 顶栏管理员入口 → `/admin`（用户/套餐/审计等）。默认进报表总览。
+**入口：** 顶栏 **管理** → `/admin`。默认进报表总览。侧栏含分析报表、商业化与结算、运行与观测、安全与审计、用户管理等。实拍见 README `assets/web/admin.png`、`admin-users.png`。
 
 **前置：** `role=admin`。
 
-**步骤：** 打开 **用户** 列表，确认只有你创建的管理员（空库）。浏览 **套餐**，不要在验收时随便改生产计费。
+**步骤：** 打开 **用户管理**，确认空库只有你创建的管理员。可浏览套餐配置；不要在验收时随便改计费数字。
 
-**期望：** 能进入后台；用户表干净。
+**期望：** 能进入后台；用户表干净。这是管本实例的运营台，不是对外托管 SLA。
 
 ---
 
 ## L2 委托队列（opt-in）
 
-**不是开箱即 L2。** `.env` 默认 `TA_TUSHARE_L2_ENABLED=0`。
+原版辩论图没有产品级 L2。**不是开箱即 L2。** `.env` 默认 `TA_TUSHARE_L2_ENABLED=0`。
 
 1. 你的 Tushare 账号须有 L2 / 委托队列类权限。
 2. 设 `TA_TUSHARE_L2_ENABLED=1`（可选 `TA_TUSHARE_L2_API`），重启 API。
 3. 在智能分析 **数据源** 弹窗或 K 线高级盘口查看是否命中。无权限时为空，分析继续。
 
+没有权限时不要用空盘口当产品截图。能力说明与标识见 [capabilities.md](capabilities.md) 与 README「L2 数据接入」。
+
 ---
 
 ## Qlib 桥（可选）
 
-默认关闭（`TA_QLIB_*_ENABLED=0`）。Docker **不含** Qlib。若本机打开桥接且界面有入口，按界面操作；否则只把 Qlib 当作能力说明，见 [capabilities.md](capabilities.md)。
+原版没有独立 Qlib 沙盒。默认关闭（`TA_QLIB_*_ENABLED=0`）。Docker **不含** Qlib。主进程不 `import qlib`；本机有数据时按 [QLIB/README.md](../../QLIB/README.md) 走 inbox/outbox。界面无入口时只当作能力说明，见 [capabilities.md](capabilities.md)。
+
+---
+
+## 订阅（多用户点数）
+
+**入口：** 侧栏 **订阅** `/subscription`。实拍见 README `assets/web/subscription.png`。
+
+**步骤：** 查看余额与套餐码；可申请 Free / Pro / Team（默认需管理员审核）；查看点数流水。
+
+**期望：** 能看到套餐卡片与流水表。这是本实例配额，不是仓库代收款。
 
 ---
 
 ## 控制台与其它
 
 - **控制台** `/`：欢迎与快捷入口。
-- **订阅** `/subscription`：自托管套餐申请（管理员审核），与本实例运营无关。
 - **反馈留言** `/feedback`。

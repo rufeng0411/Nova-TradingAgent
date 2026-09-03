@@ -4,9 +4,9 @@
 
 **Fifteen specialists. One A-share research desk.**
 
-A 株向けのセルフホスト型マルチエージェント調査デスクです。自動発注はデフォルトではありません。
+上流 TradingAgents の討議グラフを、ログイン可能な Web 調査デスクにしたものです。ChartPro、高速分析、任意の Tushare L2、任意の Qlib 橋、複数ユーザーのクレジット／管理画面を追加しています。自動発注はデフォルトではありません。
 
-インストールは [English README](README.md) と [docs/zh-CN/install.md](docs/zh-CN/install.md) を正とします。健康チェックは `GET /healthz`（`/health` ではありません）。
+製品紹介・差分の全文は [简体中文 README](README.zh-CN.md) と [English README](README.md) を正とします。インストールは [docs/zh-CN/install.md](docs/zh-CN/install.md)。健康チェックは `GET /healthz`（`/health` ではありません）。
 
 協力・ビジネス：WeChat **山君**（QR は中文 README の「交流合作」と同じ）。
 

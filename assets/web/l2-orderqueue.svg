@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="96" viewBox="0 0 160 96">
+  <rect width="160" height="96" rx="12" fill="#0f172a"/>
+  <text x="12" y="22" font-family="Segoe UI, sans-serif" font-size="12" fill="#94a3b8">L2 ‘X</text>
+  <rect x="12" y="36" width="52" height="8" rx="2" fill="#22c55e"/>
+  <rect x="12" y="48" width="38" height="8" rx="2" fill="#22c55e"/>
+  <rect x="12" y="60" width="28" height="8" rx="2" fill="#22c55e"/>
+  <rect x="96" y="36" width="52" height="8" rx="2" fill="#ef4444"/>
+  <rect x="110" y="48" width="38" height="8" rx="2" fill="#ef4444"/>
+  <rect x="120" y="60" width="28" height="8" rx="2" fill="#ef4444"/>
+  <text x="80" y="84" font-family="Segoe UI, sans-serif" font-size="11" text-anchor="middle" fill="#e2e8f0">pÿ ∑ Vÿ</text>
+</svg>

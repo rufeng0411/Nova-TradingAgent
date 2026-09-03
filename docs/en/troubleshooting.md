@@ -6,7 +6,7 @@ You skipped `cd frontend && npm install && npm run build`. The API mounts the SP
 
 ## Cannot reach the API
 
-Golden path URL is `http://127.0.0.1:8000`. Do not use Vite 5173 unless the dev API on 8001 is also running.
+Recommended URL is `http://127.0.0.1:8000`. Do not use Vite 5173 unless the dev API on 8001 is also running.
 
 ## Health check
 

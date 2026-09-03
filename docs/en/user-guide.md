@@ -98,16 +98,24 @@ Add symbols; enable **scheduled analysis**; batch edit/delete/test. Repeated fai
 
 ## 10. Admin (browse-level)
 
-**Entry:** `/admin` (admin role). Check **Users** is only your default admin on a clean DB. Browse plans; do not treat this as a hosted billing SLA.
+**Entry:** header **Admin** → `/admin` (admin role). Default landing is the ops overview. Shots: README `assets/web/admin.png`, `admin-users.png`.
+
+**Steps:** open **Users**; on a clean DB it should be only the admin you created. Browse plans; do not treat this as a hosted billing SLA.
 
 ---
 
 ## L2 order queue (opt-in)
 
-Default `TA_TUSHARE_L2_ENABLED=0`. You need a Tushare L2 entitlement. Missing permission returns empty data; analysis continues.
+Not in the original debate graph. Default `TA_TUSHARE_L2_ENABLED=0`. You need a Tushare L2 / order-queue entitlement. Missing permission returns empty data; analysis continues. Do not screenshot an empty book as if it were live L2. See [capabilities.md](capabilities.md) and the README L2 section.
 
 ---
 
 ## Qlib bridge (optional)
 
-Flags default off. **Not in the Docker image.** See [capabilities.md](capabilities.md).
+Not in the original project. Flags default off. **Not in the Docker image.** Main process must not `import qlib`. If you already have local Qlib data, follow [QLIB/README.md](../../QLIB/README.md). Otherwise treat it as a capability note: [capabilities.md](capabilities.md).
+
+---
+
+## Subscription (multi-user credits)
+
+**Entry:** sidebar **Subscription** `/subscription`. Shot: README `assets/web/subscription.png`. Balance, Free/Pro/Team requests (admin review), credit ledger — quotas for this instance, not a billing SLA from the repo.

@@ -4,9 +4,9 @@
 
 **Fifteen specialists. One A-share research desk.**
 
-Mesa de investigación multiagente autoalojada para acciones A de China. Por defecto **no** envía órdenes.
+El grafo de debate de TradingAgents, convertido en un escritorio web con inicio de sesión: ChartPro, análisis rápido, L2 Tushare opcional, puente Qlib opcional, créditos multiusuario y consola de administración. Por defecto **no** envía órdenes.
 
-Instalación: [README en inglés](README.md) y [docs/zh-CN/install.md](docs/zh-CN/install.md). Salud: `GET /healthz`.
+La ficha de producto y las diferencias frente al proyecto original están en el [README en chino](README.zh-CN.md) y el [README en inglés](README.md). Instalación: [docs/zh-CN/install.md](docs/zh-CN/install.md). Salud: `GET /healthz`.
 
 Colaboración: WeChat **山君** (el mismo QR que en el README chino).
 
