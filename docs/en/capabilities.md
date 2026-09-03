@@ -18,6 +18,13 @@ Tushare order-queue / book pressure is **opt-in** (`TA_TUSHARE_L2_ENABLED=0`). N
 
 Eval sandbox flags default off. **Not packaged in Docker.** For operators who already have Qlib data locally.
 
-## Web workbench
+## Web workbench (pages the original project does not have)
 
-One FastAPI process: auth and credits, smart analysis, fast analysis, K-line (ChartPro + AI insight), watchlist and schedules, tracking board, report history, task center, settings, admin. Golden path: build the SPA, serve it on port **8000**.
+One FastAPI process. Extra vs the upstream debate graph:
+
+- **K-line** ChartPro (`/chart`): workstation + AI insight — README shot `assets/web/chartpro.png`
+- **Fast analysis** (`/analysis/fast`): ~2-minute short path — `assets/web/fast-analysis.png`
+- Smart-analysis canvas / debate drawer / reports: `assets/web/analysis.png` and siblings
+- Watchlist schedules, tracking board, login/credits, admin
+
+Golden path: build the SPA, serve it on port **8000**.

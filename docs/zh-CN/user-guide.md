@@ -72,6 +72,8 @@
 
 **失败：** 开关未开 → 在 `.env` 设 `TA_FAST_ANALYSIS_ENABLED=1` 并重启。无 Key 与智能分析相同。
 
+截图参考：`assets/web/fast-analysis.png`。
+
 ---
 
 ## 4. K 线分析
@@ -91,7 +93,7 @@
 
 **失败：** 无 K 线数据 → 检查 `TUSHARE_TOKEN` / 网络；无盘口 → 权益未开通，见下节 L2。
 
-本打包若无单独 K 线截图，请以本机运行实例为准。
+截图参考：`assets/web/chartpro.png`。
 
 ---
 

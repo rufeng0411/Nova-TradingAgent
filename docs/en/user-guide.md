@@ -48,6 +48,8 @@ Screens: `assets/web/analysis.png`, `debate_drawer.png`, `detail.png`.
 
 **Fail:** Feature off until the env flag is set and the API restarted.
 
+Screenshot: `assets/web/fast-analysis.png`.
+
 ---
 
 ## 4. K-line analysis
@@ -58,7 +60,7 @@ Screens: `assets/web/analysis.png`, `debate_drawer.png`, `detail.png`.
 
 **Steps:** Search a symbol; change period/adjust; start **Ai insight**. Without entitlements, book/intraday stay empty — expected.
 
-This is not an exchange L2 terminal.
+This is not an exchange L2 terminal. Screenshot: `assets/web/chartpro.png`.
 
 ---
 

@@ -34,35 +34,63 @@ Open `http://127.0.0.1:8000`. Health check: `GET http://127.0.0.1:8000/healthz`.
 
 Not investment advice. Market data may be delayed.
 
-## What's different
+## What the original project does not have
 
-- **15-agent desk** — seven analysts (including volume-price), bull/bear debate, research manager, trader, three risk voices, risk judge.
-- **Translation layer** — vendors and tables are reduced to conclusions the model can use, instead of dumping raw feeds into the prompt.
-- **Optional Tushare L2** — off by default (`TA_TUSHARE_L2_ENABLED=0`). Needs a Tushare L2 entitlement. Missing permission returns empty data; analysis continues.
-- **K-line workstation** — ChartPro with periods, quotes, and an AI insight panel (not a broker terminal).
-- **Self-hosted SaaS surface** — login, credits, plans, and an admin console ship in this tree. Configure them; they are not a separate commercial cut.
+Upstream TradingAgents is a **multi-agent debate graph** (run a round from scripts or a notebook). **Nova-TradingAgent** is a self-hosted A-share **web desk**. The pages below are not in the original project — they are the point of this repo.
 
-## See it run
+### 1. K-line workstation (ChartPro)
+
+The original tree has **no** professional candlestick desk. This page is a full workstation: daily/weekly/monthly bars, adjust, MA + Bollinger, MACD golden/dead-cross labels, quote ribbon, **AI chart insight**; time-share / five-level book are entitlement-gated. It is not a broker order ticket.
 
 <p align="center">
-  <img src="assets/web/analysis.png" width="100%" alt="Smart analysis canvas with multi-agent workflow">
+  <img src="assets/web/chartpro.png" width="100%" alt="ChartPro: SSE daily K-line, MA/Bollinger, MACD crosses, quote ribbon">
+</p>
+
+Sidebar **K-line** → `/chart`. Guide: [user-guide.md §4](docs/en/user-guide.md).
+
+### 2. Fast analysis
+
+The original tree has **no** two-minute short path. Here: snapshot features (60-day daily bars, RT daily, auction, …) → ~22 feature slots → **one LLM pass**, a conclusion card — not a full 15-agent debate. Default `TA_FAST_ANALYSIS_ENABLED=0`.
+
+<p align="center">
+  <img src="assets/web/fast-analysis.png" width="100%" alt="Fast analysis: two-minute decision aid, symbol and risk profile">
+</p>
+
+Sidebar **Fast analysis** → `/analysis/fast`. Guide: [user-guide.md §3](docs/en/user-guide.md).
+
+### 3. Fifteen agents, translation layer, optional L2
+
+- **Volume-price analyst** is in the default graph (15 nodes, not the old “14”).
+- **Translation layer:** models read conclusions, not raw vendor dumps.
+- **Tushare L2 order queue** is opt-in (`TA_TUSHARE_L2_ENABLED=0`). Empty book on missing permission; smart analysis still finishes.
+
+### 4. Web smart analysis (canvas + debate + report)
+
+Upstream mostly runs the graph in a terminal. Here you get a workflow canvas, debate drawer, and structured reports. The in-page quote strip is also this product, not the original CLI.
+
+<p align="center">
+  <img src="assets/web/analysis.png" width="100%" alt="Smart analysis: chat submit, 15-agent canvas, embedded chart">
 </p>
 
 <p align="center">
-  <img src="assets/web/debate_drawer.png" width="90%" alt="Debate drawer during multi-agent research">
+  <img src="assets/web/debate_drawer.png" width="90%" alt="Bull/bear and risk debate drawer, streamed by round">
 </p>
 
 <p align="center">
-  <img src="assets/web/detail.png" width="48%" alt="Structured research report">
-  <img src="assets/web/reports.png" width="48%" alt="History of research reports">
+  <img src="assets/web/detail.png" width="48%" alt="Structured report and decision card">
+  <img src="assets/web/reports.png" width="48%" alt="Report history">
 </p>
+
+### 5. Watchlist schedules, tracking board, login/admin
+
+The original project has no scheduled watchlist jobs, position tracking board, or credits/plans/admin. Those ship in this tree.
 
 <p align="center">
-  <img src="assets/web/dashboard.png" width="48%" alt="Dashboard">
-  <img src="assets/web/settings.png" width="48%" alt="Model provider settings">
+  <img src="assets/web/timer_analysis.png" width="70%" alt="Scheduled analysis on watchlist names, overnight trading-day window">
+  <img src="assets/web/settings.png" width="28%" alt="Settings: model vendor and API key">
 </p>
 
-K-line / Level-2 / Qlib screenshots: see the evaluation report if a local entitlement was not available at packaging time. Do not treat schema diagrams as live market UI.
+The Qlib bridge defaults off and is **not in the Docker image**. No fake screenshots.
 
 ## How the desk works
 

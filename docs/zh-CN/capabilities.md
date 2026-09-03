@@ -18,6 +18,13 @@ Tushare 委托队列 / 盘口压力是 **opt-in**（`TA_TUSHARE_L2_ENABLED=0`）
 
 量化评估沙盒默认关闭，且 **不在 Docker 镜像里**。适合本机已有 Qlib 数据的人；不是开箱功能。
 
-## Web 工作台
+## Web 工作台（原项目没有的页面）
 
-同一套 FastAPI：登录与点数、智能分析、快速分析、K 线分析（ChartPro + Ai 解读）、自选与定时、持仓跟踪、历史研报、任务中心、设置、管理后台。源码黄金路径：构建 SPA 后由 **8000** 端口托管。
+同一套 FastAPI。相对上游辩论图，本仓库多出来的是：
+
+- **K 线分析** ChartPro（`/chart`）：专业 K 线 + Ai 解读，见 README 实拍 `assets/web/chartpro.png`
+- **快速分析**（`/analysis/fast`）：约 2 分钟短链路，见 `assets/web/fast-analysis.png`
+- 智能分析画布 / 辩论 Drawer / 研报：`assets/web/analysis.png` 等
+- 自选定时、跟踪看板、登录点数、管理后台
+
+黄金路径：构建 SPA 后由 **8000** 端口托管。

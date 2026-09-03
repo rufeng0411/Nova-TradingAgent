@@ -34,35 +34,63 @@ uv run python -m uvicorn api.main:app --host 127.0.0.1 --port 8000
 
 不构成投资建议。行情与财务数据可能延迟。
 
-## 有何不同
+## 相对原版多了什么
 
-- **15 名投研智能体** — 七名分析师（含量价）、多空辩论、研究总监、交易员、三风控与风控裁决。
-- **翻译层** — 把数据源整理成模型能读的结论，而不是把原始表塞进提示词。
-- **可选 Tushare L2** — 默认关闭（`TA_TUSHARE_L2_ENABLED=0`）。需要 Tushare L2 权限。无权限时相关字段为空，分析继续。
-- **K 线分析** — ChartPro 主图、周期、报价与 Ai 助手（不是券商行情终端）。
-- **完整自托管表面** — 登录、点数、套餐、管理后台都在本仓库。按需配置，不是「社区版砍掉计费」。
+上游 TradingAgents 是**多智能体辩论图**（脚本/笔记本跑一轮研究）。**Nova-TradingAgent** 做成可自托管的 A 股 Web 工作台。下面这些页面是原项目没有的，也是本仓库的重点。
 
-## 界面实拍
+### 1. K 线分析（ChartPro）
+
+原项目**没有**专业 K 线工作台。本页是独立终端：日/周/月 K、复权、均线与布林、MACD 金叉/死叉标注、报价头条、**Ai 盘面解读**；分时 / 五档盘口按账户权益可选。不是券商下单终端。
 
 <p align="center">
-  <img src="assets/web/analysis.png" width="100%" alt="智能分析工作流画布">
+  <img src="assets/web/chartpro.png" width="100%" alt="K 线分析：上证指数日K、均线布林、MACD 金叉死叉、报价头条">
+</p>
+
+入口：侧栏 **K 线分析** → `/chart`。手册：[user-guide.md §4](docs/zh-CN/user-guide.md)。
+
+### 2. 快速分析
+
+原项目**没有** 2 分钟短链路。这里并行采集快照明细（60 日日 K、日线 RT、集合竞价等）→ 抽取约 22 个特征槽 → **单轮 LLM**，输出结论卡；不是完整 15 人辩论。默认 `TA_FAST_ANALYSIS_ENABLED=0`，打开后侧栏可用。
+
+<p align="center">
+  <img src="assets/web/fast-analysis.png" width="100%" alt="快速分析：2 分钟决策辅助，标的输入与风险偏好">
+</p>
+
+入口：侧栏 **快速分析** → `/analysis/fast`。手册：[user-guide.md §3](docs/zh-CN/user-guide.md)。
+
+### 3. 15 名智能体、翻译层、可选 L2
+
+- **量价分析师**进默认图（15 节点，不是旧文的 14）。
+- **翻译层**：行情/财务/资金先整理成结论再进模型，而不是把原始大表塞进提示词。
+- **Tushare L2 委托队列**是 opt-in（`TA_TUSHARE_L2_ENABLED=0`）。无权限时盘口为空，智能分析继续。
+
+### 4. Web 智能分析（画布 + 辩论 + 研报）
+
+原版多在终端跑图；这里有工作流画布、辩论 Drawer、结构化研报。嵌入行情区也是本产品补上的，不是上游 CLI。
+
+<p align="center">
+  <img src="assets/web/analysis.png" width="100%" alt="智能分析：对话提交、协同工作流画布、嵌入 K 线">
 </p>
 
 <p align="center">
-  <img src="assets/web/debate_drawer.png" width="90%" alt="多智能体辩论 Drawer">
+  <img src="assets/web/debate_drawer.png" width="90%" alt="多智能体多空/风控辩论 Drawer，按轮次流式发言">
 </p>
 
 <p align="center">
-  <img src="assets/web/detail.png" width="48%" alt="结构化研报">
-  <img src="assets/web/reports.png" width="48%" alt="历史研报">
+  <img src="assets/web/detail.png" width="48%" alt="结构化研报与决策卡片">
+  <img src="assets/web/reports.png" width="48%" alt="历史研报列表">
 </p>
+
+### 5. 自选定时、跟踪看板、完整登录后台
+
+原项目没有自选定时、持仓跟踪看板、点数/套餐/管理后台。这些都在本树里，按需配置。
 
 <p align="center">
-  <img src="assets/web/dashboard.png" width="48%" alt="控制台">
-  <img src="assets/web/settings.png" width="48%" alt="模型厂商设置">
+  <img src="assets/web/timer_analysis.png" width="70%" alt="自选标的的定时分析：交易日夜间窗口自动跑">
+  <img src="assets/web/settings.png" width="28%" alt="设置页：模型厂商与 API Key">
 </p>
 
-K 线 / L2 / Qlib 若打包时本机无对应权限，见评测报告说明，不用假图顶替。
+Qlib 桥默认关闭且 **不在 Docker 镜像**；有本机数据再开，不配假图。
 
 ## 工作台如何运转
 
