@@ -1,0 +1,20 @@
+# NOTICE
+
+Nova-TradingAgent
+Copyright (c) 2026 rufeng0411 and contributors.
+
+This product is licensed under the GNU Affero General Public License v3.0.
+See the root [LICENSE](LICENSE) file.
+
+## Upstream
+
+Portions of the multi-agent research graph are derived from
+[TauricResearch/TradingAgents](https://github.com/TauricResearch/TradingAgents),
+licensed under the Apache License 2.0.
+
+This repository is a distinct product tree. Python package directory names
+(`tradingagents/`) are kept for compatibility and do not change the AGPL-3.0
+license of this distribution.
+
+Historical A-share fork work is acknowledged; clone URLs and product branding
+in this tree point at `rufeng0411/Nova-TradingAgent`.

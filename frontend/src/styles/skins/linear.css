@@ -1,0 +1,284 @@
+/**
+ * Linear / Notion 风格覆盖层：仅在 html[data-skin="linear"] 时生效。
+ * 默认皮肤不加载本文件，零影响。
+ */
+
+/* ---------- 全局底与正文 ---------- */
+html[data-skin="linear"] body {
+  background-color: #fbfbfa !important;
+  color: #1f2328 !important;
+}
+
+html[data-skin="linear"].dark body {
+  background-color: #0e0e10 !important;
+  color: #e8e8ea !important;
+}
+
+html[data-skin="linear"] ::-webkit-scrollbar-track {
+  background-color: #ededed;
+}
+
+html[data-skin="linear"] ::-webkit-scrollbar-thumb {
+  background-color: #c4c4c4;
+}
+
+html[data-skin="linear"] ::-webkit-scrollbar-thumb:hover {
+  background-color: #a3a3a3;
+}
+
+html[data-skin="linear"].dark ::-webkit-scrollbar-track {
+  background-color: #262626;
+}
+
+html[data-skin="linear"].dark ::-webkit-scrollbar-thumb {
+  background-color: #525252;
+}
+
+html[data-skin="linear"].dark ::-webkit-scrollbar-thumb:hover {
+  background-color: #737373;
+}
+
+/* ---------- index.css 组件类 ---------- */
+html[data-skin="linear"] .card {
+  background-color: #ffffff !important;
+  border-color: #e6e6e6 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+}
+
+html[data-skin="linear"].dark .card {
+  background-color: #151517 !important;
+  border-color: #26262a !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35) !important;
+}
+
+html[data-skin="linear"] .card-hover:hover {
+  border-color: #5e6ad2 !important;
+  box-shadow: 0 2px 8px rgba(94, 106, 210, 0.12) !important;
+  transform: none !important;
+}
+
+html[data-skin="linear"] .btn-primary {
+  background-image: none !important;
+  background-color: #5e6ad2 !important;
+  box-shadow: none !important;
+}
+
+html[data-skin="linear"] .btn-primary:hover {
+  background-color: #4f5ab8 !important;
+}
+
+html[data-skin="linear"] .btn-secondary {
+  background-color: #f4f4f5 !important;
+  color: #3f3f46 !important;
+  border-color: #e4e4e7 !important;
+}
+
+html[data-skin="linear"].dark .btn-secondary {
+  background-color: #27272a !important;
+  color: #e4e4e7 !important;
+  border-color: #3f3f46 !important;
+}
+
+html[data-skin="linear"] .input {
+  border-radius: 6px !important;
+  border-color: #d4d4d8 !important;
+  background-color: #ffffff !important;
+  color: #18181b !important;
+}
+
+html[data-skin="linear"].dark .input {
+  border-color: #3f3f46 !important;
+  background-color: #18181b !important;
+  color: #fafafa !important;
+}
+
+html[data-skin="linear"] .text-gradient {
+  background-image: none !important;
+  color: #5e6ad2 !important;
+  -webkit-text-fill-color: #5e6ad2 !important;
+}
+
+html[data-skin="linear"] .status-dot-green,
+html[data-skin="linear"] .status-dot-blue,
+html[data-skin="linear"] .status-dot-orange {
+  box-shadow: none !important;
+}
+
+/* ---------- 高频背景 ---------- */
+html[data-skin="linear"] .bg-slate-50,
+html[data-skin="linear"] .bg-white {
+  background-color: #fbfbfa !important;
+}
+
+html[data-skin="linear"] .bg-white\/88,
+html[data-skin="linear"] .bg-white\/90 {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+}
+
+html[data-skin="linear"] .bg-slate-50\/50,
+html[data-skin="linear"] .bg-slate-50\/80 {
+  background-color: rgba(251, 251, 250, 0.85) !important;
+}
+
+html[data-skin="linear"] .bg-slate-100,
+html[data-skin="linear"] .bg-slate-100\/80 {
+  background-color: #f4f4f5 !important;
+}
+
+/* 侧栏等始终深色底（浅色主题下也保持） */
+html[data-skin="linear"] .bg-slate-900\/95 {
+  background-color: rgba(14, 14, 16, 0.95) !important;
+}
+
+html[data-skin="linear"] .bg-slate-900 {
+  background-color: #0e0e10 !important;
+}
+
+/* dark: 变体在 Tailwind 中形如 .dark .dark\\:bg-slate-900\\/30 */
+html[data-skin="linear"].dark .dark\:bg-slate-900,
+html[data-skin="linear"].dark .dark\:bg-slate-900\/30,
+html[data-skin="linear"].dark .dark\:bg-slate-900\/40,
+html[data-skin="linear"].dark .dark\:bg-slate-900\/50,
+html[data-skin="linear"].dark .dark\:bg-slate-900\/70,
+html[data-skin="linear"].dark .dark\:bg-slate-900\/80,
+html[data-skin="linear"].dark .dark\:bg-slate-900\/90 {
+  background-color: #18181b !important;
+}
+
+html[data-skin="linear"].dark .dark\:bg-slate-950,
+html[data-skin="linear"].dark .dark\:bg-slate-950\/40,
+html[data-skin="linear"].dark .dark\:bg-slate-950\/78 {
+  background-color: #0e0e10 !important;
+}
+
+html[data-skin="linear"].dark .dark\:bg-slate-800\/80 {
+  background-color: rgba(39, 39, 42, 0.92) !important;
+}
+
+html[data-skin="linear"].dark .dark\:from-slate-900,
+html[data-skin="linear"].dark .dark\:via-slate-900\/95,
+html[data-skin="linear"].dark .dark\:to-slate-800 {
+  --tw-gradient-from: #0e0e10 !important;
+  --tw-gradient-via: #141416 !important;
+  --tw-gradient-to: #18181b !important;
+}
+
+/* ---------- 边框 ---------- */
+html[data-skin="linear"] .border-slate-100,
+html[data-skin="linear"] .border-slate-200,
+html[data-skin="linear"] .border-slate-200\/80,
+html[data-skin="linear"] .border-slate-300 {
+  border-color: #e6e6e6 !important;
+}
+
+html[data-skin="linear"].dark .border-slate-700,
+html[data-skin="linear"].dark .border-slate-700\/80,
+html[data-skin="linear"].dark .border-slate-800 {
+  border-color: #26262a !important;
+}
+
+html[data-skin="linear"].dark .dark\:border-slate-600,
+html[data-skin="linear"].dark .dark\:border-slate-700,
+html[data-skin="linear"].dark .dark\:border-slate-700\/80,
+html[data-skin="linear"].dark .dark\:border-slate-800 {
+  border-color: #26262a !important;
+}
+
+html[data-skin="linear"] .border-slate-200\/80 {
+  border-color: #e6e6e6 !important;
+}
+
+/* ---------- 文字色 ---------- */
+html[data-skin="linear"] .text-slate-900,
+html[data-skin="linear"] .text-slate-950 {
+  color: #1f2328 !important;
+}
+
+html[data-skin="linear"] .text-slate-600,
+html[data-skin="linear"] .text-slate-700 {
+  color: #52525b !important;
+}
+
+html[data-skin="linear"] .text-slate-400,
+html[data-skin="linear"] .text-slate-500 {
+  color: #71717a !important;
+}
+
+html[data-skin="linear"].dark .text-slate-100,
+html[data-skin="linear"].dark .text-slate-200,
+html[data-skin="linear"].dark .text-slate-300 {
+  color: #e8e8ea !important;
+}
+
+html[data-skin="linear"].dark .dark\:text-slate-100,
+html[data-skin="linear"].dark .dark\:text-slate-200,
+html[data-skin="linear"].dark .dark\:text-slate-300 {
+  color: #e8e8ea !important;
+}
+
+html[data-skin="linear"].dark .dark\:text-slate-400,
+html[data-skin="linear"].dark .dark\:text-slate-500 {
+  color: #a1a1aa !important;
+}
+
+/* ---------- 渐变头像 / 主色块 ---------- */
+html[data-skin="linear"] .bg-gradient-to-br.from-cyan-500.via-blue-500.to-indigo-600,
+html[data-skin="linear"] .from-cyan-500.via-blue-500.to-indigo-600 {
+  background-image: none !important;
+  background-color: #5e6ad2 !important;
+}
+
+html[data-skin="linear"] .bg-gradient-to-r.from-blue-500.to-blue-600,
+html[data-skin="linear"] .from-blue-500.to-blue-600 {
+  background-image: none !important;
+  background-color: #5e6ad2 !important;
+}
+
+/* ---------- React Flow 控件 ---------- */
+html[data-skin="linear"] .agent-collab-flow .react-flow {
+  --xy-controls-button-color: #52525b;
+  --xy-controls-button-color-hover: #5e6ad2;
+  --xy-controls-button-background-color: #ffffff;
+  --xy-controls-button-background-color-hover: #f4f4f5;
+  --xy-controls-button-border-color: #e6e6e6;
+}
+
+html[data-skin="linear"].dark .agent-collab-flow .react-flow {
+  --xy-controls-button-color: #a1a1aa;
+  --xy-controls-button-color-hover: #a5a4ff;
+  --xy-controls-button-background-color: #18181b;
+  --xy-controls-button-background-color-hover: #27272a;
+  --xy-controls-button-border-color: #3f3f46;
+}
+
+html[data-skin="linear"] .agent-collab-flow .react-flow__controls {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+}
+
+html[data-skin="linear"].dark .agent-collab-flow .react-flow__controls {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* ---------- 原生 chart select ---------- */
+html[data-skin="linear"] select.chart-native-select {
+  background-color: #ffffff !important;
+  color: #18181b !important;
+  border-color: #a1a1aa !important;
+}
+
+html[data-skin="linear"].dark select.chart-native-select {
+  background-color: #18181b !important;
+  color: #fafafa !important;
+  border-color: #525252 !important;
+}
+
+html[data-skin="linear"] select.chart-native-select option {
+  background-color: #ffffff;
+  color: #18181b;
+}
+
+html[data-skin="linear"].dark select.chart-native-select option {
+  background-color: #18181b;
+  color: #fafafa;
+}

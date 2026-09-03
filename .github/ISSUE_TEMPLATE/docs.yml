@@ -1,0 +1,23 @@
+name: Docs
+description: Installation, user guide, or translation issue
+title: "[docs] "
+labels: ["documentation"]
+body:
+  - type: dropdown
+    id: which
+    attributes:
+      label: Which doc?
+      options:
+        - README
+        - install.md
+        - user-guide.md
+        - configure.md
+        - other
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong or missing?
+    validations:
+      required: true

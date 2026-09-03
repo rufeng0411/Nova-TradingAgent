@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline';" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nova-TradingAgent 开发控制台</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="rail">
+        <div class="brand">
+          <div class="brand-mark"></div>
+          <div class="brand-text">
+            <div class="brand-title">Nova-TradingAgent</div>
+            <div class="brand-sub">开发控制台</div>
+          </div>
+        </div>
+        <div class="actions actions--primary">
+          <button type="button" class="btn btn-primary" id="btn-smart">智能一键</button>
+          <button type="button" class="btn btn-restart" id="btn-restart">重启服务</button>
+          <p class="hint-aside">打开后自动拉起环境与前后端；改代码后用「重启服务」。</p>
+        </div>
+      </aside>
+      <main class="main">
+        <div class="main-head">
+          <header class="status-bar" id="summary">正在初始化…</header>
+          <div class="action-bar" role="toolbar" aria-label="开发操作">
+            <div class="action-group">
+              <span class="action-label">环境</span>
+              <button type="button" class="btn btn-sm" id="btn-infra-pg" title="启动或重启本机 PostgreSQL">PostgreSQL</button>
+              <button type="button" class="btn btn-sm" id="btn-infra-redis" title="启动或重启本机 Redis">Redis</button>
+              <button type="button" class="btn btn-sm" id="btn-deps">检测依赖</button>
+            </div>
+            <div class="action-group">
+              <span class="action-label">访问</span>
+              <button type="button" class="btn btn-sm" id="btn-web">打开前端</button>
+              <button type="button" class="btn btn-sm" id="btn-web-mobile">手机端</button>
+            </div>
+            <div class="action-group">
+              <span class="action-label">进程</span>
+              <button type="button" class="btn btn-sm" id="btn-stop-services">停止 API/前端</button>
+              <button type="button" class="btn btn-sm" id="btn-stop-ports">释放端口</button>
+              <button type="button" class="btn btn-sm" id="btn-clear">清空日志</button>
+            </div>
+          </div>
+          <nav class="nav nav--horizontal" id="nav" role="tablist" aria-label="主视图">
+            <button type="button" class="nav-item is-active" data-view="overview" role="tab" aria-selected="true">概览</button>
+            <button type="button" class="nav-item" data-view="log" role="tab" aria-selected="false">日志</button>
+            <button type="button" class="nav-item" data-view="options" role="tab" aria-selected="false">选项</button>
+          </nav>
+        </div>
+        <div class="views">
+          <section class="view view-overview is-visible" id="view-overview">
+            <div class="card table-wrap overview-card">
+              <div class="overview-head">
+                <span class="chart-label">运行状态</span>
+                <span class="overview-hint" id="overview-hint">开发服务 · 数据与缓存</span>
+              </div>
+              <table class="svc-table" id="svc-table">
+                <thead>
+                  <tr>
+                    <th>组件</th>
+                    <th>状态</th>
+                    <th>端口</th>
+                    <th>PID</th>
+                    <th>说明</th>
+                  </tr>
+                </thead>
+                <tbody id="svc-body"></tbody>
+              </table>
+            </div>
+          </section>
+          <section class="view view-log" id="view-log">
+            <div class="log-toolbar">
+              <div class="log-toolbar-main">
+                <span class="log-toolbar-label">通道</span>
+                <button type="button" class="tab-btn is-active" data-log-tab="all">全部</button>
+                <button type="button" class="tab-btn" data-log-tab="api">API</button>
+                <button type="button" class="tab-btn" data-log-tab="web">前端</button>
+                <button type="button" class="tab-btn" data-log-tab="orch">编排</button>
+              </div>
+              <span class="log-scroll-hint" id="log-scroll-hint"></span>
+            </div>
+            <div class="card log-card">
+              <pre class="log" id="log"></pre>
+            </div>
+          </section>
+          <section class="view view-options" id="view-options">
+            <div class="card opt-card">
+              <p class="opt-lead">
+                「智能一键」与打开控制台后的自动启动将依次：释放端口、清空缓存（可选）、uv sync、前端 build（可选）、预检并拉起 MySQL / Postgres / Redis、启动 API 与 Vite，并等待概览表全部绿灯。
+                跳过自动启动可设 TA_DEV_LAUNCHER_SKIP_AUTO=1。
+              </p>
+              <label class="check"><input type="checkbox" id="opt-stop" checked /> 启动前释放端口并停止本启动器拉起的进程</label>
+              <label class="check"><input type="checkbox" id="opt-uv" checked /> 启动前执行 uv sync</label>
+              <label class="check"><input type="checkbox" id="opt-build" checked /> 启动前前端生产构建（较慢）</label>
+              <label class="check"><input type="checkbox" id="opt-clear" checked /> 启动前清空项目缓存</label>
+              <label class="check"><input type="checkbox" id="opt-exit-stop" /> 退出时停止开发服务并释放端口</label>
+              <p class="opt-muted" id="root-path"></p>
+              <p class="opt-muted" id="config-hint"></p>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

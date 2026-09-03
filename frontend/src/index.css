@@ -1,0 +1,222 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@layer base {
+  * {
+    @apply border-slate-200 dark:border-slate-700;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100;
+    font-family: system-ui, -apple-system, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-100 dark:bg-slate-800 rounded;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 dark:bg-slate-600 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-400 dark:bg-slate-500;
+  }
+}
+
+/* 自定义工具类，供 @apply 引用 */
+@utility badge {
+  @apply inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold;
+}
+
+@utility status-dot {
+  @apply w-2.5 h-2.5 rounded-full;
+}
+
+@layer components {
+
+  /* 卡片样式 - 亮色/暗色适配 */
+  .card {
+    @apply bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl p-4;
+    @apply shadow-sm dark:shadow-lg;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300;
+  }
+
+  .card-hover:hover {
+    @apply border-blue-400 dark:border-blue-500/50;
+    @apply shadow-md dark:shadow-blue-500/10;
+    transform: translateY(-2px);
+  }
+
+  /* 按钮样式 */
+  .btn-primary {
+    @apply px-4 py-2 rounded-lg font-medium text-white transition-all duration-200;
+    @apply bg-gradient-to-r from-blue-500 to-blue-600;
+    @apply hover:from-blue-600 hover:to-blue-700;
+    @apply shadow-md hover:shadow-lg;
+  }
+
+  .btn-primary:disabled {
+    @apply opacity-50 cursor-not-allowed;
+    transform: none;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200;
+    @apply bg-slate-100 text-slate-700 border border-slate-300;
+    @apply dark:bg-slate-700 dark:text-slate-200 dark:border-slate-600;
+    @apply hover:bg-slate-200 dark:hover:bg-slate-600;
+  }
+
+  /* 输入框 */
+  .input {
+    @apply px-3 py-2 rounded-lg transition-all duration-200;
+    @apply bg-white dark:bg-slate-800;
+    @apply text-slate-900 dark:text-slate-100;
+    @apply placeholder:text-slate-400 dark:placeholder:text-slate-500;
+    @apply border border-slate-300 dark:border-slate-600;
+    @apply focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500;
+  }
+
+  /* 标签样式 */
+  .badge-green {
+    @apply badge bg-green-100 text-green-700 dark:bg-green-500/20 dark:text-green-400;
+    @apply border border-green-200 dark:border-green-500/30;
+  }
+
+  .badge-red {
+    @apply badge bg-red-100 text-red-700 dark:bg-red-500/20 dark:text-red-400;
+    @apply border border-red-200 dark:border-red-500/30;
+  }
+
+  .badge-blue {
+    @apply badge bg-blue-100 text-blue-700 dark:bg-blue-500/20 dark:text-blue-400;
+    @apply border border-blue-200 dark:border-blue-500/30;
+  }
+
+  .badge-orange {
+    @apply badge bg-orange-100 text-orange-700 dark:bg-orange-500/20 dark:text-orange-400;
+    @apply border border-orange-200 dark:border-orange-500/30;
+  }
+
+  .badge-purple {
+    @apply badge bg-purple-100 text-purple-700 dark:bg-purple-500/20 dark:text-purple-400;
+    @apply border border-purple-200 dark:border-purple-500/30;
+  }
+
+  /* 渐变文字 */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-400;
+  }
+
+  /* 状态指示器 */
+  .status-dot-green {
+    @apply status-dot bg-green-500;
+    box-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
+  }
+
+  .status-dot-blue {
+    @apply status-dot bg-blue-500;
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
+  }
+
+  .status-dot-orange {
+    @apply status-dot bg-orange-500;
+    box-shadow: 0 0 8px rgba(249, 115, 22, 0.6);
+  }
+}
+
+@layer utilities {
+  .animate-in {
+    animation: animateIn 0.3s ease-out;
+  }
+
+  @keyframes animateIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* ---------- 多Agents量化研究分析（React Flow）：缩放控件（必须写在 index.css —— 应用入口只导入此文件）---------- */
+/* xyflow 默认 --xy-controls-button-color-default 为 inherit，易被主题层叠成「看不见」；此处强制变量 + 实色（协作画布） */
+.agent-collab-flow .react-flow {
+  --xy-controls-button-color: #475569;
+  --xy-controls-button-color-hover: #2563eb;
+  --xy-controls-button-background-color: #ffffff;
+  --xy-controls-button-background-color-hover: #f1f5f9;
+  --xy-controls-button-border-color: #e2e8f0;
+}
+
+.dark .agent-collab-flow .react-flow {
+  --xy-controls-button-color: #cbd5e1;
+  --xy-controls-button-color-hover: #93c5fd;
+  --xy-controls-button-background-color: #1e293b;
+  --xy-controls-button-background-color-hover: #334155;
+  --xy-controls-button-border-color: #334155;
+}
+
+.agent-collab-flow .react-flow__controls {
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.12);
+}
+
+.dark .agent-collab-flow .react-flow__controls {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.agent-collab-flow .react-flow__controls-button {
+  color: var(--xy-controls-button-color) !important;
+  background: var(--xy-controls-button-background-color) !important;
+  border-bottom-color: var(--xy-controls-button-border-color) !important;
+}
+
+.agent-collab-flow .react-flow__controls-button:hover {
+  color: var(--xy-controls-button-color-hover) !important;
+  background: var(--xy-controls-button-background-color-hover) !important;
+}
+
+.agent-collab-flow .react-flow__controls-button svg {
+  fill: currentColor;
+  stroke: currentColor;
+  opacity: 1;
+}
+
+/* K 线：原生 <select> 在 Windows / 半透明白底工具栏上易被系统主题刷成白字，强制明暗配色 */
+select.chart-native-select {
+  color-scheme: light;
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #94a3b8 !important;
+}
+.dark select.chart-native-select {
+  color-scheme: dark;
+  background-color: #1e293b !important;
+  color: #f1f5f9 !important;
+  border-color: #64748b !important;
+}
+select.chart-native-select option {
+  background-color: #ffffff;
+  color: #0f172a;
+}
+.dark select.chart-native-select option {
+  background-color: #1e293b;
+  color: #f1f5f9;
+}

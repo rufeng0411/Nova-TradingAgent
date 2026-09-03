@@ -1,0 +1,12 @@
+name: Feature request
+description: Suggest an idea for Nova-TradingAgent
+title: "[feat] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: Idea
+      description: What should change, and why? Discuss large work before a PR.
+    validations:
+      required: true

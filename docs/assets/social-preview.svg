@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640">
+  <rect width="1280" height="640" fill="#0d1117"/>
+  <text x="80" y="260" fill="#f0f6fc" font-size="64" font-family="Segoe UI, sans-serif">Nova-TradingAgent</text>
+  <text x="80" y="340" fill="#8b949e" font-size="32" font-family="Segoe UI, sans-serif">Fifteen specialists. One A-share research desk.</text>
+  <text x="80" y="520" fill="#58a6ff" font-size="28" font-family="Segoe UI, sans-serif">AGPL-3.0</text>
+</svg>

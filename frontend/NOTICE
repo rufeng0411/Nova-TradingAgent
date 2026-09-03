@@ -1,0 +1,8 @@
+Nova-TradingAgent frontend
+Copyright (c) 2026 rufeng0411 and contributors
+
+This frontend is distributed under AGPL-3.0 together with the rest of the
+repository. See the root LICENSE and NOTICE.
+
+TauricResearch/TradingAgents (Apache-2.0) is acknowledged as upstream
+inspiration for the research graph, not as the license of this UI.

@@ -1,0 +1,1 @@
+Self-hosted A-share multi-agent research desk: 15-agent debate, optional Tushare Level-2 order queue, K-line workstation with AI insight, and a signal translation layer so models read conclusions — not raw dumps. AGPL-3.0.

@@ -1,0 +1,79 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+# Prefer system Python on Windows: uv-managed installs under %USERPROFILE% can fail
+# subprocess creation (exit 101 / "Unable to create process") when policy/AV blocks them.
+[tool.uv]
+python-preference = "system"
+
+[project]
+name = "tradingagents"
+version = "0.2.5"
+description = "Nova-TradingAgent: A-share multi-agent research desk"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "langchain-core>=0.3.81",
+    "langchain-anthropic>=0.3.15",
+    "langchain-experimental>=0.3.4",
+    "langchain-google-genai>=2.1.5",
+    "langchain-openai>=0.3.23",
+    "langgraph>=0.4.8",
+    "langgraph-checkpoint-sqlite>=3.0.3",
+    "langgraph-checkpoint-postgres>=3.0.0",
+    "psycopg[binary]>=3.2.0",
+    "aiosqlite>=0.20.0",
+    "pandas>=2.3.0",
+    "rank-bm25>=0.2.2",
+    "requests>=2.32.4",
+    "setuptools>=80.9.0",
+    "stockstats>=0.6.5",
+    "typing-extensions>=4.14.0",
+    "yfinance>=0.2.63",
+    "akshare>=1.16.80",
+    "baostock>=0.8.9",
+    "fastapi>=0.116.1",
+    "python-multipart>=0.0.18",
+    "uvicorn>=0.35.0",
+    "sqlalchemy>=2.0.48",
+    "pymysql>=1.1.0",
+    "python-dotenv>=1.0.0",
+    "PyJWT>=2.11.0",
+    "cryptography>=45.0.3",
+    "json-repair>=0.44.0",
+    "markdown>=3.7",
+    "redis[hiredis]>=5.0.0",
+    "bcrypt>=4.0.0",
+    "Pillow>=10.0.0",
+    "tushare>=1.4.29",
+    "tabulate>=0.9.0",
+]
+
+[project.scripts]
+tradingagents = "cli.main:app"
+tradingagents-api = "api.main:run"
+tradingagents-scheduler = "scheduler.main:sync_main"
+
+[tool.setuptools.packages.find]
+include = ["tradingagents*", "cli*", "api*", "scheduler*"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+]
+quant = [
+    "lightgbm>=4.0.0",
+    "pyqlib>=0.9.6",
+    "vectorbt>=0.26.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+markers = [
+    "no_init_db: skip api.database.init_db autouse (pure unit tests)",
+]
+filterwarnings = [
+    "ignore::jwt.warnings.InsecureKeyLengthWarning",
+]

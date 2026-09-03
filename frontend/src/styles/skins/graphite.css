@@ -1,0 +1,499 @@
+/**
+ * Graphite / 石墨：专业投研中性灰 + 哑光靛强调。
+ * 仅在 html[data-skin="graphite"] 时生效；默认与 Linear 一行不改。
+ *
+ * 依赖 class 名匹配的位置（Tailwind 改名时需同步）：
+ * - 侧栏：`bg-slate-900/95`、`border-slate-700`、Logo 三色渐变、导航激活渐变条
+ * - 顶栏头像：`from-cyan-500 via-blue-500 to-indigo-600`
+ */
+
+/* ---------- Design tokens ---------- */
+html[data-skin="graphite"] {
+    --ta-bg: #e5e7eb;
+    --ta-surface: #f3f4f6;
+    --ta-surface-elevated: #f9fafb;
+    --ta-surface-muted: #d1d5db;
+    --ta-border: #d1d5db;
+    --ta-border-strong: #9ca3af;
+    --ta-text-primary: #111827;
+    --ta-text-secondary: #4b5563;
+    --ta-text-tertiary: #6b7280;
+    --ta-accent: #4f46e5;
+    --ta-accent-soft: rgba(79, 70, 229, 0.1);
+    --ta-accent-text: #4338ca;
+    --ta-sidebar-bg: #e5e7eb;
+    --ta-sidebar-fg: #4b5563;
+    --ta-sidebar-active-bg: #f9fafb;
+    --ta-sidebar-active-fg: #111827;
+}
+
+html[data-skin="graphite"].dark {
+    --ta-bg: #000000;
+    --ta-surface: #0a0a0a;
+    --ta-surface-elevated: #121212;
+    --ta-surface-muted: #171717;
+    --ta-border: #262626;
+    --ta-border-strong: #404040;
+    --ta-text-primary: #ededed;
+    --ta-text-secondary: #a1a1aa;
+    --ta-text-tertiary: #71717a;
+    --ta-accent: #818cf8;
+    --ta-accent-soft: rgba(129, 140, 248, 0.12);
+    --ta-accent-text: #a5b4fc;
+    --ta-sidebar-bg: #050505;
+    --ta-sidebar-fg: #a1a1aa;
+    --ta-sidebar-active-bg: #171717;
+    --ta-sidebar-active-fg: #ededed;
+}
+
+/* ---------- Global base ---------- */
+html[data-skin="graphite"] body {
+    background-color: var(--ta-bg) !important;
+    color: var(--ta-text-primary) !important;
+}
+
+html[data-skin="graphite"] ::-webkit-scrollbar-track {
+    background-color: var(--ta-surface-muted);
+}
+
+html[data-skin="graphite"] ::-webkit-scrollbar-thumb {
+    background-color: var(--ta-border-strong);
+}
+
+html[data-skin="graphite"] ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--ta-text-tertiary);
+}
+
+html[data-skin="graphite"].dark ::-webkit-scrollbar-track {
+    background-color: var(--ta-surface-muted);
+}
+
+html[data-skin="graphite"].dark ::-webkit-scrollbar-thumb {
+    background-color: var(--ta-border-strong);
+}
+
+html[data-skin="graphite"].dark ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--ta-text-tertiary);
+}
+
+/* ---------- index.css 组件类 ---------- */
+html[data-skin="graphite"] .card {
+    background-color: var(--ta-surface-elevated) !important;
+    border-color: var(--ta-border) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 1px 0 rgba(31, 35, 40, 0.04) !important;
+}
+
+html[data-skin="graphite"].dark .card {
+    background-color: rgba(28, 33, 40, 0.94) !important;
+    border-color: var(--ta-border) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35) !important;
+}
+
+html[data-skin="graphite"] .card-hover:hover {
+    border-color: color-mix(in srgb, var(--ta-accent) 40%, var(--ta-border)) !important;
+    box-shadow: 0 2px 10px rgba(79, 70, 229, 0.08) !important;
+    transform: translateY(-1px) !important;
+}
+
+html[data-skin="graphite"] .btn-primary {
+    background-image: none !important;
+    background-color: var(--ta-accent) !important;
+    box-shadow: none !important;
+}
+
+html[data-skin="graphite"] .btn-primary:hover {
+    filter: brightness(1.06);
+}
+
+html[data-skin="graphite"] .btn-secondary {
+    background-color: var(--ta-surface-muted) !important;
+    color: var(--ta-text-primary) !important;
+    border-color: var(--ta-border-strong) !important;
+}
+
+html[data-skin="graphite"] .input {
+    border-radius: 8px !important;
+    border-color: var(--ta-border-strong) !important;
+    background-color: var(--ta-surface-elevated) !important;
+    color: var(--ta-text-primary) !important;
+}
+
+html[data-skin="graphite"] .input:focus {
+    --tw-ring-color: color-mix(in srgb, var(--ta-accent) 35%, transparent) !important;
+    border-color: color-mix(in srgb, var(--ta-accent) 55%, var(--ta-border)) !important;
+}
+
+html[data-skin="graphite"] .text-gradient {
+    background-image: none !important;
+    color: var(--ta-accent-text) !important;
+    -webkit-text-fill-color: var(--ta-accent-text) !important;
+}
+
+html[data-skin="graphite"] .status-dot-green,
+html[data-skin="graphite"] .status-dot-blue,
+html[data-skin="graphite"] .status-dot-orange {
+    box-shadow: none !important;
+}
+
+/* ---------- 高频背景（页面台阶） ---------- */
+html[data-skin="graphite"] .bg-slate-50 {
+    background-color: var(--ta-bg) !important;
+}
+
+html[data-skin="graphite"] .bg-white {
+    background-color: var(--ta-surface-elevated) !important;
+}
+
+html[data-skin="graphite"] .bg-white\/88,
+html[data-skin="graphite"] .bg-white\/90 {
+    background-color: color-mix(in srgb, var(--ta-surface-elevated) 88%, transparent) !important;
+}
+
+html[data-skin="graphite"] .bg-slate-50\/50,
+html[data-skin="graphite"] .bg-slate-50\/80 {
+    background-color: color-mix(in srgb, var(--ta-bg) 85%, transparent) !important;
+}
+
+html[data-skin="graphite"] .bg-slate-100,
+html[data-skin="graphite"] .bg-slate-100\/80 {
+    background-color: var(--ta-surface-muted) !important;
+}
+
+/* 侧栏：浅色雾灰柱（替代始终深色） */
+html[data-skin="graphite"] .bg-slate-900\/95 {
+    background-color: color-mix(in srgb, var(--ta-sidebar-bg) 97%, transparent) !important;
+}
+
+html[data-skin="graphite"] .bg-slate-900 {
+    background-color: var(--ta-sidebar-bg) !important;
+}
+
+html[data-skin="graphite"].dark .dark\:bg-slate-900,
+html[data-skin="graphite"].dark .dark\:bg-slate-900\/30,
+html[data-skin="graphite"].dark .dark\:bg-slate-900\/40,
+html[data-skin="graphite"].dark .dark\:bg-slate-900\/50,
+html[data-skin="graphite"].dark .dark\:bg-slate-900\/70,
+html[data-skin="graphite"].dark .dark\:bg-slate-900\/80,
+html[data-skin="graphite"].dark .dark\:bg-slate-900\/90 {
+    background-color: var(--ta-surface) !important;
+}
+
+html[data-skin="graphite"].dark .dark\:bg-slate-950,
+html[data-skin="graphite"].dark .dark\:bg-slate-950\/40,
+html[data-skin="graphite"].dark .dark\:bg-slate-950\/78 {
+    background-color: color-mix(in srgb, var(--ta-bg) 92%, transparent) !important;
+}
+
+html[data-skin="graphite"].dark .dark\:bg-slate-800\/80 {
+    background-color: color-mix(in srgb, var(--ta-surface) 94%, transparent) !important;
+}
+
+/* Layout main：深色去掉蓝灰渐变，统一墨底 */
+html[data-skin="graphite"].dark .dark\:from-slate-900,
+html[data-skin="graphite"].dark .dark\:via-slate-900\/95,
+html[data-skin="graphite"].dark .dark\:to-slate-800 {
+    --tw-gradient-from: var(--ta-bg) !important;
+    --tw-gradient-via: var(--ta-bg) !important;
+    --tw-gradient-to: var(--ta-bg) !important;
+}
+
+/* ---------- 边框 ---------- */
+html[data-skin="graphite"] .border-slate-100,
+html[data-skin="graphite"] .border-slate-200,
+html[data-skin="graphite"] .border-slate-200\/80,
+html[data-skin="graphite"] .border-slate-300 {
+    border-color: var(--ta-border) !important;
+}
+
+html[data-skin="graphite"].dark .border-slate-700,
+html[data-skin="graphite"].dark .border-slate-700\/80,
+html[data-skin="graphite"].dark .border-slate-800 {
+    border-color: var(--ta-border) !important;
+}
+
+html[data-skin="graphite"].dark .dark\:border-slate-600,
+html[data-skin="graphite"].dark .dark\:border-slate-700,
+html[data-skin="graphite"].dark .dark\:border-slate-700\/80,
+html[data-skin="graphite"].dark .dark\:border-slate-800 {
+    border-color: var(--ta-border) !important;
+}
+
+/* ---------- 文字色 ---------- */
+html[data-skin="graphite"] .text-slate-900,
+html[data-skin="graphite"] .text-slate-950 {
+    color: var(--ta-text-primary) !important;
+}
+
+html[data-skin="graphite"] .text-slate-600,
+html[data-skin="graphite"] .text-slate-700 {
+    color: var(--ta-text-secondary) !important;
+}
+
+html[data-skin="graphite"] .text-slate-400,
+html[data-skin="graphite"] .text-slate-500 {
+    color: var(--ta-text-tertiary) !important;
+}
+
+html[data-skin="graphite"].dark .text-slate-100,
+html[data-skin="graphite"].dark .text-slate-200,
+html[data-skin="graphite"].dark .text-slate-300 {
+    color: var(--ta-text-primary) !important;
+}
+
+html[data-skin="graphite"].dark .dark\:text-slate-100,
+html[data-skin="graphite"].dark .dark\:text-slate-200,
+html[data-skin="graphite"].dark .dark\:text-slate-300 {
+    color: var(--ta-text-primary) !important;
+}
+
+html[data-skin="graphite"].dark .dark\:text-slate-400,
+html[data-skin="graphite"].dark .dark\:text-slate-500 {
+    color: var(--ta-text-tertiary) !important;
+}
+
+/* ---------- 哑光靛：替换通用 blue 强调（保留红/绿/琥珀等业务色） ---------- */
+html[data-skin="graphite"] .text-blue-600,
+html[data-skin="graphite"] .text-blue-500,
+html[data-skin="graphite"] .text-blue-700 {
+    color: var(--ta-accent-text) !important;
+}
+
+html[data-skin="graphite"] .text-blue-400,
+html[data-skin="graphite"] .text-blue-300 {
+    color: var(--ta-accent-text) !important;
+}
+
+html[data-skin="graphite"].dark .dark\:text-blue-600,
+html[data-skin="graphite"].dark .dark\:text-blue-400,
+html[data-skin="graphite"].dark .dark\:text-blue-300 {
+    color: var(--ta-accent-text) !important;
+}
+
+html[data-skin="graphite"] .border-blue-400\/30,
+html[data-skin="graphite"] .border-blue-500\/30 {
+    border-color: color-mix(in srgb, var(--ta-accent) 38%, transparent) !important;
+}
+
+html[data-skin="graphite"] .bg-blue-50,
+html[data-skin="graphite"] .bg-blue-500\/10,
+html[data-skin="graphite"] .bg-blue-500\/15 {
+    background-color: var(--ta-accent-soft) !important;
+}
+
+html[data-skin="graphite"].dark .dark\:bg-blue-500\/10,
+html[data-skin="graphite"].dark .dark\:bg-blue-950\/40 {
+    background-color: var(--ta-accent-soft) !important;
+}
+
+html[data-skin="graphite"] .hover\:border-blue-300:hover {
+    border-color: color-mix(in srgb, var(--ta-accent) 45%, var(--ta-border)) !important;
+}
+
+html[data-skin="graphite"] .border-blue-500 {
+    border-color: var(--ta-accent) !important;
+}
+
+/* ---------- 收口彩虹渐变 → 哑光靛实色 ---------- */
+html[data-skin="graphite"] .bg-gradient-to-br.from-cyan-500.via-blue-500.to-indigo-600,
+html[data-skin="graphite"] .from-cyan-500.via-blue-500.to-indigo-600 {
+    background-image: none !important;
+    background-color: var(--ta-accent) !important;
+}
+
+html[data-skin="graphite"] .bg-gradient-to-br.from-blue-500.via-purple-500.to-cyan-400 {
+    background-image: none !important;
+    background-color: var(--ta-accent) !important;
+    box-shadow: none !important;
+}
+
+html[data-skin="graphite"] .bg-gradient-to-r.from-blue-500\/20.to-purple-500\/20 {
+    background-image: none !important;
+    background-color: var(--ta-accent-soft) !important;
+    color: var(--ta-accent-text) !important;
+}
+
+html[data-skin="graphite"] .bg-gradient-to-r.from-cyan-500.via-blue-500.to-indigo-500,
+html[data-skin="graphite"] .from-cyan-500.via-blue-500.to-indigo-500 {
+    background-image: none !important;
+    background-color: var(--ta-accent) !important;
+}
+
+html[data-skin="graphite"] .bg-gradient-to-r.from-blue-500.to-cyan-400,
+html[data-skin="graphite"] .from-blue-500.to-cyan-400 {
+    background-image: none !important;
+    background-color: var(--ta-accent) !important;
+}
+
+html[data-skin="graphite"] .bg-gradient-to-r.from-blue-500.to-blue-600,
+html[data-skin="graphite"] .from-blue-500.to-blue-600 {
+    background-image: none !important;
+    background-color: var(--ta-accent) !important;
+}
+
+html[data-skin="graphite"] aside span.bg-clip-text.text-transparent.bg-gradient-to-r {
+    background-image: none !important;
+    color: var(--ta-text-primary) !important;
+    -webkit-text-fill-color: var(--ta-text-primary) !important;
+}
+
+/* ChartToolbar  cyan 徽章 */
+html[data-skin="graphite"] [class*="from-cyan-600/20"][class*="to-blue-600/20"] {
+    background-image: none !important;
+    background-color: var(--ta-accent-soft) !important;
+    border-color: color-mix(in srgb, var(--ta-accent) 35%, transparent) !important;
+    color: var(--ta-accent-text) !important;
+}
+
+html[data-skin="graphite"] [class*="border-cyan-500/30"] {
+    border-color: color-mix(in srgb, var(--ta-accent) 35%, transparent) !important;
+}
+
+html[data-skin="graphite"] [class*="text-cyan-700"],
+html[data-skin="graphite"] [class*="dark:text-cyan-300"] {
+    color: var(--ta-accent-text) !important;
+}
+
+/* ---------- React Flow 控件 ---------- */
+html[data-skin="graphite"] .agent-collab-flow .react-flow {
+    --xy-controls-button-color: var(--ta-text-secondary);
+    --xy-controls-button-color-hover: var(--ta-accent);
+    --xy-controls-button-background-color: var(--ta-surface-elevated);
+    --xy-controls-button-background-color-hover: var(--ta-surface-muted);
+    --xy-controls-button-border-color: var(--ta-border);
+}
+
+html[data-skin="graphite"].dark .agent-collab-flow .react-flow {
+    --xy-controls-button-color: var(--ta-text-tertiary);
+    --xy-controls-button-color-hover: var(--ta-accent-text);
+    --xy-controls-button-background-color: var(--ta-surface);
+    --xy-controls-button-background-color-hover: var(--ta-sidebar-active-bg);
+    --xy-controls-button-border-color: var(--ta-border-strong);
+}
+
+html[data-skin="graphite"] .agent-collab-flow .react-flow__controls {
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08) !important;
+}
+
+html[data-skin="graphite"].dark .agent-collab-flow .react-flow__controls {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* ---------- chart select ---------- */
+html[data-skin="graphite"] select.chart-native-select {
+    background-color: var(--ta-surface-elevated) !important;
+    color: var(--ta-text-primary) !important;
+    border-color: var(--ta-border-strong) !important;
+}
+
+html[data-skin="graphite"].dark select.chart-native-select {
+    background-color: var(--ta-surface) !important;
+    color: var(--ta-text-primary) !important;
+    border-color: var(--ta-border-strong) !important;
+}
+
+html[data-skin="graphite"] select.chart-native-select option {
+    background-color: var(--ta-surface-elevated);
+    color: var(--ta-text-primary);
+}
+
+html[data-skin="graphite"].dark select.chart-native-select option {
+    background-color: var(--ta-surface);
+    color: var(--ta-text-primary);
+}
+
+/* ---------- n8n 工作流外壳（跟随石墨 surface） ---------- */
+html[data-skin="graphite"] .workflow-n8n-shell {
+    border-color: color-mix(in srgb, var(--ta-border) 75%, transparent) !important;
+    background: color-mix(in srgb, var(--ta-surface-elevated) 58%, transparent) !important;
+}
+
+html[data-skin="graphite"].dark .workflow-n8n-shell {
+    border-color: color-mix(in srgb, var(--ta-border) 65%, transparent) !important;
+    background: color-mix(in srgb, var(--ta-bg) 55%, transparent) !important;
+}
+
+html[data-skin="graphite"] .workflow-n8n-canvas {
+    border-color: color-mix(in srgb, var(--ta-border) 55%, transparent) !important;
+    background: color-mix(in srgb, var(--ta-surface) 45%, transparent) !important;
+}
+
+html[data-skin="graphite"].dark .workflow-n8n-canvas {
+    border-color: color-mix(in srgb, var(--ta-border) 45%, transparent) !important;
+    background: color-mix(in srgb, var(--ta-surface-muted) 45%, transparent) !important;
+}
+
+html[data-skin="graphite"] .workflow-n8n-node {
+    border-color: color-mix(in srgb, var(--ta-border) 90%, transparent) !important;
+    background: color-mix(in srgb, var(--ta-surface-elevated) 72%, transparent) !important;
+}
+
+html[data-skin="graphite"].dark .workflow-n8n-node {
+    border-color: color-mix(in srgb, var(--ta-border) 85%, transparent) !important;
+    background: color-mix(in srgb, var(--ta-surface) 68%, transparent) !important;
+}
+
+html[data-skin="graphite"] .workflow-n8n-edge-label {
+    color: var(--ta-text-secondary) !important;
+    background: color-mix(in srgb, var(--ta-surface-elevated) 72%, transparent) !important;
+    border-color: color-mix(in srgb, var(--ta-border) 65%, transparent) !important;
+}
+
+html[data-skin="graphite"].dark .workflow-n8n-edge-label {
+    color: var(--ta-text-secondary) !important;
+    background: color-mix(in srgb, var(--ta-surface) 58%, transparent) !important;
+    border-color: color-mix(in srgb, var(--ta-border) 55%, transparent) !important;
+}
+
+html[data-skin="graphite"] .workflow-n8n-footer {
+    border-top-color: color-mix(in srgb, var(--ta-border) 55%, transparent) !important;
+    color: var(--ta-text-tertiary) !important;
+}
+
+html[data-skin="graphite"].dark .workflow-n8n-footer {
+    border-top-color: color-mix(in srgb, var(--ta-border) 50%, transparent) !important;
+    color: var(--ta-text-tertiary) !important;
+}
+
+html[data-skin="graphite"] .workflow-n8n-node-icon {
+    border-color: color-mix(in srgb, var(--ta-border) 85%, transparent) !important;
+    background: color-mix(in srgb, var(--ta-surface-elevated) 88%, transparent) !important;
+}
+
+html[data-skin="graphite"].dark .workflow-n8n-node-icon {
+    border-color: color-mix(in srgb, var(--ta-border) 80%, transparent) !important;
+    background: color-mix(in srgb, var(--ta-surface) 78%, transparent) !important;
+}
+
+html[data-skin="graphite"] .workflow-n8n-pulse-dot {
+    background: var(--ta-accent) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html[data-skin="graphite"] .workflow-n8n-node:hover {
+        transform: none !important;
+    }
+}
+
+/* ---------- 侧栏细分：底部分割线、悬浮（浅色雾柱 + 深色石墨柱） ---------- */
+html[data-skin="graphite"] aside.border-slate-700,
+html[data-skin="graphite"] aside .border-slate-700 {
+    border-color: var(--ta-border-strong) !important;
+}
+
+html[data-skin="graphite"] aside nav a[class*="hover:bg-slate-800"]:hover {
+    background-color: color-mix(in srgb, var(--ta-surface-muted) 95%, transparent) !important;
+}
+
+html[data-skin="graphite"] aside nav a[class*="hover:text-slate-200"]:hover {
+    color: var(--ta-text-primary) !important;
+}
+
+html[data-skin="graphite"].dark aside nav a[class*="hover:bg-slate-800"]:hover {
+    background-color: color-mix(in srgb, var(--ta-sidebar-active-bg) 88%, transparent) !important;
+}
+
+/* Logo 阴影：靛色弱光 */
+html[data-skin="graphite"] aside .shadow-blue-500\/30 {
+    box-shadow: 0 10px 24px color-mix(in srgb, var(--ta-accent) 22%, transparent) !important;
+}

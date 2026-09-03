@@ -1,0 +1,43 @@
+/**
+ * 默认皮肤等效 token（文档 / 图表 hook fallback）。
+ * 默认皮肤 UI 不引用这些变量，避免影响现有观感。
+ */
+:root {
+  --skin-bg: #f8fafc;
+  --skin-surface: #ffffff;
+  --skin-surface-muted: #f1f5f9;
+  --skin-fg: #0f172a;
+  --skin-fg-muted: #64748b;
+  --skin-fg-subtle: #94a3b8;
+  --skin-border: #e2e8f0;
+  --skin-border-strong: #cbd5e1;
+  --skin-primary: #3b82f6;
+  --skin-primary-soft: rgba(59, 130, 246, 0.15);
+  --skin-success: #22c55e;
+  --skin-danger: #ef4444;
+  --skin-chart-up: #ef4444;
+  --skin-chart-down: #22c55e;
+  --skin-chart-text: #475569;
+  --skin-chart-grid: rgba(203, 213, 225, 0.6);
+  --skin-chart-border: #cbd5e1;
+}
+
+.dark {
+  --skin-bg: #020617;
+  --skin-surface: #1e293b;
+  --skin-surface-muted: #0f172a;
+  --skin-fg: #f1f5f9;
+  --skin-fg-muted: #94a3b8;
+  --skin-fg-subtle: #64748b;
+  --skin-border: #334155;
+  --skin-border-strong: #475569;
+  --skin-primary: #60a5fa;
+  --skin-primary-soft: rgba(96, 165, 250, 0.12);
+  --skin-success: #22c55e;
+  --skin-danger: #ef4444;
+  --skin-chart-up: #ef4444;
+  --skin-chart-down: #22c55e;
+  --skin-chart-text: #94a3b8;
+  --skin-chart-grid: rgba(51, 65, 85, 0.6);
+  --skin-chart-border: #334155;
+}

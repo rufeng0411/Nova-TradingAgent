@@ -1,0 +1,224 @@
+{
+  "announcements": [
+    {
+      "id": "2026-03-30-v070-accuracy-overhaul",
+      "tag": "重大更新",
+      "title": "V0.7.0：基于 1200+ 份报告回测，系统性优化决策准确率",
+      "summary": "通过对 1093 份历史报告的准确率回测，发现 BUY 信号 T+3 仅 25%、HOLD 占比 53% 等核心问题，针对性重构决策链路与 Agent 架构。",
+      "published_at": "2026-03-30",
+      "items": [
+        {
+          "title": "回测驱动的决策优化",
+          "detail": "对 1093 份报告进行 T+1/T+3/T+5 准确率回测，发现 BUY 信号 T+3 仅 25%、HOLD 占比 53%、分析师准确率无差异等核心问题。针对性重构决策链路、信号量表与分析师权重机制，所有优化均有数据依据。"
+        },
+        {
+          "title": "Agent 协作流程可视化",
+          "detail": "协同工作流升级为 React Flow 水平节点连线图，数据流向一目了然。节点固定尺寸不随屏幕缩放，连线颜色随 Agent 状态实时变化（待命→分析中→完成），小屏支持拖拽平移。"
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "2026-03-28-v060-debate-view",
+      "tag": "Major",
+      "title": "V0.6.0：辩论对战可视化、安全加固与稳定性大幅提升",
+      "summary": "新增多空辩论 & 风控辩论实时对战 Drawer，全链路流式输出；API Token 安全存储升级；根治数据库连接池耗尽问题。",
+      "published_at": "2026-03-28",
+      "items": [
+        {
+          "title": "辩论对战可视化 (Debate Battle View)",
+          "detail": "点击多头/空头/研究总监卡片可打开「多空辩论」Drawer，点击激进/中性/稳健/组合经理卡片可打开「风控三方辩论」Drawer。辩论过程以垂直时间线呈现，按 Round 分组，支持 Token 级流式输出实时显示 Agent 发言，裁决卡片独立高亮展示。"
+        },
+        {
+          "title": "风控辩论全面异步化",
+          "detail": "风控三方辩论（激进/稳健/中性分析师）和风控裁决（组合经理）从同步 llm.invoke() 升级为异步 llm.astream()，辩论内容逐字流式输出到 Drawer，不再需要等待整段发言完成。"
+        },
+        {
+          "title": "A 股决策颜色适配",
+          "detail": "决策卡片颜色遵循 A 股惯例：红色代表看多/买入，绿色代表看空/卖出，符合国内投资者视觉直觉。"
+        },
+        {
+          "title": "API Token 安全存储升级",
+          "detail": "用户 API Token 改用 HMAC-SHA256 哈希存储（不可逆），仅保留末 4 位用于辨识；用户 LLM API Key 使用 AES 加密存储，支持密钥轮换时自动重加密。"
+        },
+        {
+          "title": "数据库连接池稳定性",
+          "detail": "根治 QueuePool 耗尽问题：分析任务不再长期占用数据库连接（从分钟级降至毫秒级），邮件发送不再阻塞连接池。所有手动 Session 统一改为 Context Manager 管理，杜绝连接泄漏。"
+        },
+        {
+          "title": "前端工程优化",
+          "detail": "ESLint 从 v8 迁移至 v9 flat config，解决 Vercel 部署依赖冲突；移除回测页面及连接状态指示器，简化界面。"
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "2026-03-22-v050-release",
+      "tag": "功能更新",
+      "title": "V0.5.0 正式版：自选股定时分析、流式输出、依赖瘦身",
+      "summary": "支持自选股管理与每日定时自动分析，全链路 Token 流式输出，移除 12 个冗余依赖，14 Agent 全面协作。",
+      "published_at": "2026-03-22",
+      "items": [
+        {
+          "title": "自选股 & 定时分析",
+          "detail": "数据库持久化自选列表，支持代码/名称搜索。每个交易日 20:00~08:00 自动触发定时分析，连续失败自动停用。"
+        },
+        {
+          "title": "Token 级流式输出",
+          "detail": "全部 15 个 Agent 通过 astream 实现 Token 级 SSE 推送，对话框实时展示 LLM 输出过程，多阶段状态指示器消除等待感。"
+        },
+        {
+          "title": "对话框体验重构",
+          "detail": "Agent 消息改为紧凑卡片，图标体系与协作面板统一，点击展开查看完整内容，完成后自动转为报告卡片。"
+        },
+        {
+          "title": "依赖瘦身与稳定性",
+          "detail": "移除 12 个未使用依赖，修复 mini_racer 多线程崩溃、结构化提取容错增强、SQLite WAL 模式。"
+        },
+        {
+          "title": "日志与调试",
+          "detail": "统一 uvicorn 日志时间戳格式。"
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "2026-03-21-v045-streaming-ux",
+      "tag": "Release",
+      "title": "V0.4.5：全链路 Token 流式输出与对话体验升级",
+      "summary": "所有 Agent 支持 Token 级流式输出，对话框全面改版，15 个 Agent 协作可视化。",
+      "published_at": "2026-03-21",
+      "items": [
+        {
+          "title": "Token 级流式输出",
+          "detail": "全部 15 个 Agent（含意图解析）均通过 astream 实现 Token 级 SSE 推送，用户可实时看到 LLM 输出过程。"
+        },
+        {
+          "title": "对话框体验重构",
+          "detail": "Agent 消息改为紧凑卡片（图标+标签+实时预览），支持点击展开查看完整内容，完成后自动转为报告卡片。"
+        },
+        {
+          "title": "多阶段状态指示器",
+          "detail": "用户提交后即时反馈：连接中 → 识别标的 → 采集数据 → 多智能体分析，全程无感知等待。"
+        },
+        {
+          "title": "图标体系统一",
+          "detail": "对话框与协作面板使用一致的 Lucide 图标与配色，新增宏观分析、主力资金、博弈裁判等 Agent。"
+        },
+        {
+          "title": "后端异步并行优化",
+          "detail": "分析师节点全部转为 async，数据采集并行执行，意图解析不再阻塞 SSE 流返回。"
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "2026-03-18-v044-stability",
+      "tag": "Fix",
+      "title": "V0.4.4：底层稳定性加固",
+      "summary": "本次更新修复了数据库连接泄露，并优化了资源回收机制。",
+      "published_at": "2026-03-18",
+      "items": [
+        {
+          "title": "数据库 Session 管理优化",
+          "detail": "统一了 API 和后台任务的 Session 生命周期，彻底解决 QueuePool 溢出导致的 500 错误。"
+        },
+        {
+          "title": "资源回收增强",
+          "detail": "在服务关闭时强制关闭执行器线程池，消除 Python 3.12 下的信号量泄露警告。"
+        },
+        {
+          "title": "部署路径优化",
+          "detail": "公告系统配置文件已移动至 api/ 目录，确保 Docker 镜像自动同步。"
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "2026-03-16-v043-persistence",
+      "tag": "New",
+      "title": "V0.4.3：任务持久化与并发优化",
+      "summary": "支持任务断点续传与持久化存储，提升系统并发处理能力。",
+      "published_at": "2026-03-16",
+      "items": [
+        {
+          "title": "任务持久化",
+          "detail": "分析任务现在支持数据库存储，服务器重启后可恢复进度。"
+        },
+        {
+          "title": "并发控制",
+          "detail": "支持通过 TA_MAX_WORKERS 环境变量动态调整任务执行器并发数。"
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "2026-03-16-v042-context",
+      "tag": "Release",
+      "title": "V0.4.2 发布：引入用户上下文",
+      "summary": "系统现在能感知用户的持仓约束与风险偏好。",
+      "published_at": "2026-03-16",
+      "items": [
+        {
+          "title": "用户上下文感知",
+          "detail": "支持输入个性化约束，使 Agent 分析更贴合实战背景。"
+        },
+        {
+          "title": "辩论引擎升级",
+          "detail": "多空辩论全面转向 Claim 驱动模式，论据逻辑更清晰。"
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "2026-03-15-v041-multi-horizon",
+      "tag": "Milestone",
+      "title": "V0.4.1 里程碑：多周期并行分析上线",
+      "summary": "支持短线与中线双周期意图解析。",
+      "published_at": "2026-03-15",
+      "items": [
+        {
+          "title": "多周期并行",
+          "detail": "实现‘短线技术+中线基本面’双周期同时分析，结果自动对比。"
+        },
+        {
+          "title": "Docker 部署优化",
+          "detail": "全面升级 Docker 多架构打包与 CI/CD 自动化流。"
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "2026-03-13-v040-gt-integration",
+      "tag": "Major",
+      "title": "V0.4.0：资金博弈 Agent 初步集成",
+      "summary": "引入 Game-Theory 架构，支持 Skill 系统。",
+      "published_at": "2026-03-13",
+      "items": [
+        {
+          "title": "博弈架构引入",
+          "detail": "新增 Game-Theory 分析链，报告增加方向字段与 UTC 时间戳。"
+        },
+        {
+          "title": "Skill 系统支持",
+          "detail": "支持通过 Skill 复用 Nova-TradingAgent 的分析能力。"
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "2026-03-12-v030-monorepo",
+      "tag": "Chore",
+      "title": "V0.3.0：架构清理与 Monorepo 优化",
+      "summary": "统一开发与部署路径，确立 Monorepo 代码结构。",
+      "published_at": "2026-03-12",
+      "items": [
+        {
+          "title": "仓库结构统一",
+          "detail": "清理冗余前端备份，确立标准 Monorepo 结构。"
+        }
+      ],
+      "active": true
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+a-share
+multi-agent
+tushare
+llm
+fastapi
+quantitative-finance
+trading-agents
+kline
+agpl-3.0
+china-stock

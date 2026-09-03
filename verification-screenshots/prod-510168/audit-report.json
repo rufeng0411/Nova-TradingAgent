@@ -1,0 +1,108 @@
+{
+  "baseUrl": "https://app.510168.xyz",
+  "timestamp": "2026-05-02T13:11:03.598Z",
+  "recordVideo": false,
+  "videoFiles": [],
+  "results": [
+    {
+      "name": "01-login",
+      "requestUrl": "https://app.510168.xyz/login",
+      "finalUrl": "https://app.510168.xyz/login",
+      "title": "TradingAgents Dashboard",
+      "httpStatus": 200,
+      "ms": 12558,
+      "screenshot": "01-login.png",
+      "ok": true
+    },
+    {
+      "name": "02-sponsor",
+      "requestUrl": "https://app.510168.xyz/sponsor",
+      "finalUrl": "https://app.510168.xyz/sponsor",
+      "title": "TradingAgents Dashboard",
+      "httpStatus": 200,
+      "ms": 1658,
+      "screenshot": "02-sponsor.png",
+      "ok": true
+    },
+    {
+      "name": "03-thanks",
+      "requestUrl": "https://app.510168.xyz/thanks",
+      "finalUrl": "https://app.510168.xyz/thanks",
+      "title": "TradingAgents Dashboard",
+      "httpStatus": 200,
+      "ms": 2375,
+      "screenshot": "03-thanks.png",
+      "ok": true
+    },
+    {
+      "name": "04-root",
+      "requestUrl": "https://app.510168.xyz/",
+      "finalUrl": "https://app.510168.xyz/login",
+      "title": "TradingAgents Dashboard",
+      "httpStatus": 200,
+      "ms": 3764,
+      "screenshot": "04-root.png",
+      "ok": true
+    },
+    {
+      "name": "05-analysis",
+      "requestUrl": "https://app.510168.xyz/analysis",
+      "finalUrl": "https://app.510168.xyz/login",
+      "title": "TradingAgents Dashboard",
+      "httpStatus": 200,
+      "ms": 1777,
+      "screenshot": "05-analysis.png",
+      "ok": true
+    },
+    {
+      "name": "06-reports",
+      "requestUrl": "https://app.510168.xyz/reports",
+      "finalUrl": "https://app.510168.xyz/login",
+      "title": "TradingAgents Dashboard",
+      "httpStatus": 200,
+      "ms": 1665,
+      "screenshot": "06-reports.png",
+      "ok": true
+    },
+    {
+      "name": "07-portfolio",
+      "requestUrl": "https://app.510168.xyz/portfolio",
+      "finalUrl": "https://app.510168.xyz/login",
+      "title": "TradingAgents Dashboard",
+      "httpStatus": 200,
+      "ms": 2220,
+      "screenshot": "07-portfolio.png",
+      "ok": true
+    },
+    {
+      "name": "08-tracking-board",
+      "requestUrl": "https://app.510168.xyz/tracking-board",
+      "finalUrl": "https://app.510168.xyz/login",
+      "title": "TradingAgents Dashboard",
+      "httpStatus": 200,
+      "ms": 2702,
+      "screenshot": "08-tracking-board.png",
+      "ok": true
+    },
+    {
+      "name": "09-feedback",
+      "requestUrl": "https://app.510168.xyz/feedback",
+      "finalUrl": "https://app.510168.xyz/login",
+      "title": "TradingAgents Dashboard",
+      "httpStatus": 200,
+      "ms": 19980,
+      "screenshot": "09-feedback.png",
+      "ok": true
+    },
+    {
+      "name": "10-settings",
+      "requestUrl": "https://app.510168.xyz/settings",
+      "finalUrl": "https://app.510168.xyz/login",
+      "title": "TradingAgents Dashboard",
+      "httpStatus": 200,
+      "ms": 2453,
+      "screenshot": "10-settings.png",
+      "ok": true
+    }
+  ]
+}

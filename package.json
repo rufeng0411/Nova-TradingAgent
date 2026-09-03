@@ -1,0 +1,46 @@
+{
+  "name": "ai-tradingagents-a-1",
+  "version": "1.0.0",
+  "description": "Nova-TradingAgent — A 股多智能体深度分析系统",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:frontend": "npm --prefix frontend run test",
+    "test:frontend:tsc": "npm --prefix frontend run typecheck",
+    "test:python": "uv run pytest tests/ -q --tb=line",
+    "test:regression": "npm run test:frontend && npm run test:frontend:tsc && npm run test:python",
+    "test:e2e": "npm --prefix frontend run test:e2e",
+    "test:e2e:full": "node scripts/e2e-with-api.mjs",
+    "test:e2e:mock": "npm --prefix frontend exec playwright test -- --project mock",
+    "test:e2e:live": "node scripts/e2e-with-api.mjs --project live",
+    "test:e2e:heavy": "node scripts/e2e-with-api.mjs --project heavy",
+    "test:e2e:baseline": "powershell -File scripts/e2e/run-fullstack-playwright.ps1 -Profile baseline",
+    "test:e2e:upgrade": "powershell -File scripts/e2e/run-fullstack-playwright.ps1 -Profile upgrade -IncludeHeavy",
+    "test:e2e:acceptance": "powershell -File scripts/e2e/run-fullstack-playwright.ps1 -Profile baseline && powershell -File scripts/e2e/run-fullstack-playwright.ps1 -Profile upgrade -IncludeHeavy",
+    "verify:ui": "node scripts/visual-audit.mjs https://app.510168.xyz verification-screenshots/prod-510168",
+    "dev": "concurrently --kill-others-on-fail -n api,web -c cyan,magenta \"npm run dev:api\" \"npm run dev:web\"",
+    "dev:api": "node scripts/dev-api.mjs",
+    "dev:web": "npm --prefix frontend run dev",
+    "reset:admin": "uv run python scripts/reset_admin_password.py",
+    "dev:launcher": "npm --prefix scripts/dev-launcher-electron run start",
+    "pack:oss": "python scripts/deploy/make_release_archive.py"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rufeng0411/Nova-TradingAgent.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/rufeng0411/Nova-TradingAgent/issues"
+  },
+  "homepage": "https://github.com/rufeng0411/Nova-TradingAgent#readme",
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "playwright": "^1.49.1"
+  }
+}

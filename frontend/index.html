@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN" class="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nova-TradingAgent</title>
+  <script>
+    // 初始化主题（部分浏览器/Edge 严格模式/InPrivate 下 localStorage 可能抛错，勿阻断后续模块）
+    (function () {
+      try {
+        const saved = localStorage.getItem('ta-theme') || 'system'
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+        const shouldBeDark = saved === 'system' ? systemDark : saved === 'dark'
+        if (!shouldBeDark) {
+          document.documentElement.classList.remove('dark')
+        }
+      } catch (_) { /* ignore */ }
+    })()
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>
