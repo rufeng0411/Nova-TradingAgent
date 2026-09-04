@@ -8,7 +8,7 @@
 
 製品紹介・差分の全文は [简体中文 README](README.zh-CN.md) と [English README](README.md) を正とします。インストールは [docs/zh-CN/install.md](docs/zh-CN/install.md)。健康チェックは `GET /healthz`（`/health` ではありません）。
 
-協力・ビジネス：WeChat **山君**（QR は中文 README の「交流合作」と同じ）。
+コミュニティ：[LINUX DO](https://linux.do)。協力・ビジネス：WeChat **山君**（QR は中文 README の「交流合作」と同じ）。
 
 <p align="center">
   <img src="assets/community/wechat-contact.png" width="280" alt="WeChat: 山君">

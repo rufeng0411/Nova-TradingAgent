@@ -210,6 +210,8 @@ Docker 镜像在打 `v*` 标签后才会推到 `ghcr.io/rufeng0411/Nova-TradingA
 
 ## 交流合作
 
+社区友链：[LINUX DO](https://linux.do)（感谢该社区的开源讨论空间）。
+
 商务与合作请加微信 **山君**，扫码添加。
 
 <p align="center">

@@ -8,7 +8,7 @@
 
 제품 소개와 원본 대비 차이는 [简体中文 README](README.zh-CN.md)와 [English README](README.md)가 정본입니다. 설치는 [docs/zh-CN/install.md](docs/zh-CN/install.md). 헬스 체크는 `GET /healthz`입니다.
 
-협업·비즈니스: WeChat **山君** (QR은 중문 README 「交流合作」과 동일).
+커뮤니티: [LINUX DO](https://linux.do). 협업·비즈니스: WeChat **山君** (QR은 중문 README 「交流合作」과 동일).
 
 <p align="center">
   <img src="assets/community/wechat-contact.png" width="280" alt="WeChat: 山君">

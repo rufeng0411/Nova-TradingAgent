@@ -210,6 +210,8 @@ Required for a clean boot: admin password, `TA_APP_SECRET_KEY` (≥32 bytes), SQ
 
 ## Collaborate
 
+Community: [LINUX DO](https://linux.do).
+
 Business and partnership: add WeChat **山君** (scan the QR).
 
 <p align="center">

@@ -8,7 +8,7 @@ Le graphe de débat TradingAgents, transformé en bureau web avec connexion : Ch
 
 La présentation produit et les écarts par rapport au projet d’origine sont dans le [README chinois](README.zh-CN.md) et le [README anglais](README.md). Installation : [docs/zh-CN/install.md](docs/zh-CN/install.md). Santé : `GET /healthz`.
 
-Collaboration : WeChat **山君** (même QR que le README chinois).
+Communauté : [LINUX DO](https://linux.do). Collaboration : WeChat **山君** (même QR que le README chinois).
 
 <p align="center">
   <img src="assets/community/wechat-contact.png" width="280" alt="WeChat: 山君">
