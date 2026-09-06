@@ -25,7 +25,7 @@
 
 ## L2 数据接入（原项目没有）
 
-Tushare **委托队列 / 盘口压力**做成产品开关，默认关（`TA_TUSHARE_L2_ENABLED=0`）。用来补日线回答不了的挂单厚度与队列拥挤。需要独立 L2 权限；无权限时该项为空，智能分析继续。不用未开通环境的空盘口冒充实拍；标识见 README `assets/web/tushare.svg` 与 `l2-orderqueue.svg`。
+Tushare **委托队列 / 盘口压力**做成产品开关，默认关（`TA_TUSHARE_L2_ENABLED=0`）。用来补日线回答不了的挂单厚度与队列拥挤。需要独立 L2 权限；无权限时该项为空，智能分析继续。不用未开通环境的空盘口冒充实拍；标识见 README `assets/web/tushare.svg` 与 `l2-orderqueue.png`。
 
 ## Qlib 分析集成（原项目没有）
 

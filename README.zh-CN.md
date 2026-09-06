@@ -122,8 +122,9 @@ uv run python -m uvicorn api.main:app --host 127.0.0.1 --port 8000
 
 <p align="center">
   <img src="assets/web/tushare.svg" height="56" alt="Tushare">
-  &nbsp;&nbsp;&nbsp;
-  <img src="assets/web/l2-orderqueue.svg" height="72" alt="L2 买卖盘队列示意">
+</p>
+<p align="center">
+  <img src="assets/web/l2-orderqueue.png" width="100%" alt="L2 买卖盘队列示意：买盘与卖盘厚度，不是更细的 K 线">
 </p>
 
 原版图不会把 **L2 委托队列 / 盘口压力** 做成产品开关。本仓库把 Tushare 的队列类数据接到翻译层和智能分析的数据源里，用来回答「买盘/卖盘挂单厚度、队列拥挤」这类原版日线级数据回答不了的问题。

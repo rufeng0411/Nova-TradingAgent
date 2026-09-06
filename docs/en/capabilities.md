@@ -25,7 +25,7 @@ One FastAPI process; built SPA on port **8000**:
 
 ## L2 ingest (not in the original project)
 
-Tushare **order-queue / book pressure** as a product flag, default off (`TA_TUSHARE_L2_ENABLED=0`). Covers hanging-order thickness daily bars cannot. Needs a separate L2 entitlement; empty slot without it; analysis continues. No fake empty-book screenshot; marks in the README: `assets/web/tushare.svg` and `l2-orderqueue.svg`.
+Tushare **order-queue / book pressure** as a product flag, default off (`TA_TUSHARE_L2_ENABLED=0`). Covers hanging-order thickness daily bars cannot. Needs a separate L2 entitlement; empty slot without it; analysis continues. No fake empty-book screenshot; marks in the README: `assets/web/tushare.svg` and `l2-orderqueue.png`.
 
 ## Qlib integration (not in the original project)
 

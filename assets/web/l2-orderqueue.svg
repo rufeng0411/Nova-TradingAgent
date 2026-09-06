@@ -1,11 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="160" height="96" viewBox="0 0 160 96">
-  <rect width="160" height="96" rx="12" fill="#0f172a"/>
-  <text x="12" y="22" font-family="Segoe UI, sans-serif" font-size="12" fill="#94a3b8">L2 �X</text>
-  <rect x="12" y="36" width="52" height="8" rx="2" fill="#22c55e"/>
-  <rect x="12" y="48" width="38" height="8" rx="2" fill="#22c55e"/>
-  <rect x="12" y="60" width="28" height="8" rx="2" fill="#22c55e"/>
-  <rect x="96" y="36" width="52" height="8" rx="2" fill="#ef4444"/>
-  <rect x="110" y="48" width="38" height="8" rx="2" fill="#ef4444"/>
-  <rect x="120" y="60" width="28" height="8" rx="2" fill="#ef4444"/>
-  <text x="80" y="84" font-family="Segoe UI, sans-serif" font-size="11" text-anchor="middle" fill="#e2e8f0">p� � V�</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="280" viewBox="0 0 800 280" role="img" aria-label="挂单示意：买盘与卖盘厚度，不是更细的 K 线">
+  <rect width="800" height="280" rx="16" fill="#0f172a"/>
+  <text x="28" y="36" font-family="Microsoft YaHei, PingFang SC, Noto Sans SC, sans-serif" font-size="18" fill="#e2e8f0">L2 挂单（示意）</text>
+  <text x="28" y="60" font-family="Microsoft YaHei, PingFang SC, Noto Sans SC, sans-serif" font-size="13" fill="#94a3b8">还挂着的单 · 没数据就是空白 · 不是更细的 K 线</text>
+
+  <text x="28" y="98" font-family="Microsoft YaHei, PingFang SC, Noto Sans SC, sans-serif" font-size="13" fill="#4ade80">买盘</text>
+  <rect x="88" y="86" width="260" height="16" rx="4" fill="#166534"/>
+  <rect x="88" y="110" width="190" height="16" rx="4" fill="#166534"/>
+  <rect x="88" y="134" width="140" height="16" rx="4" fill="#166534"/>
+  <rect x="88" y="158" width="92" height="16" rx="4" fill="#166534"/>
+
+  <text x="430" y="98" font-family="Microsoft YaHei, PingFang SC, Noto Sans SC, sans-serif" font-size="13" fill="#f87171">卖盘</text>
+  <rect x="490" y="86" width="260" height="16" rx="4" fill="#991b1b"/>
+  <rect x="520" y="110" width="190" height="16" rx="4" fill="#991b1b"/>
+  <rect x="560" y="134" width="140" height="16" rx="4" fill="#991b1b"/>
+  <rect x="600" y="158" width="92" height="16" rx="4" fill="#991b1b"/>
+
+  <line x1="400" y1="78" x2="400" y2="186" stroke="#334155" stroke-dasharray="4 6"/>
+  <text x="400" y="214" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans SC, sans-serif" font-size="13" fill="#cbd5e1">还挂着、还没成交</text>
+  <text x="400" y="240" text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Noto Sans SC, sans-serif" font-size="12" fill="#64748b">空白可以留着，不要画一张假盘口</text>
 </svg>

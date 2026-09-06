@@ -122,8 +122,9 @@ Sidebar **Fast analysis** → `/analysis/fast`. Guide: [user-guide.md §3](docs/
 
 <p align="center">
   <img src="assets/web/tushare.svg" height="56" alt="Tushare">
-  &nbsp;&nbsp;&nbsp;
-  <img src="assets/web/l2-orderqueue.svg" height="72" alt="L2 bid/ask queue schematic">
+</p>
+<p align="center">
+  <img src="assets/web/l2-orderqueue.png" width="100%" alt="L2 bid/ask queue schematic: hanging orders, not a finer K-line">
 </p>
 
 The original graph does not expose **L2 order-queue / book pressure** as a product switch. This repo wires Tushare queue-class data into the translation layer and smart-analysis vendors, so the desk can talk about hanging-order thickness and queue crowding—questions daily bars cannot answer.
